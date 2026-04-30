@@ -323,6 +323,22 @@ button {
   font-size: 1.05rem;
 }
 
+.problem-visual {
+  width: min(100%, 1180px);
+  margin: 0 auto 54px;
+  border-radius: 34px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.problem-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .cards.three {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -564,6 +580,11 @@ footer a {
   .cards.three,
   .feature-grid {
     grid-template-columns: 1fr;
+  }
+
+  .problem-visual {
+    margin-bottom: 34px;
+    border-radius: 22px;
   }
 
   form {
