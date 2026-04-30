@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>MistWake | Wake Up Gently</title>
+  <meta name="description" content="MistWake is a smart bedside mist alarm clock designed to wake you gently with light, sound, and a refreshing mist." />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <span class="logo-mark">MW</span>
+      <span>MistWake</span>
+    </div>
+
+    <nav class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#how">How It Works</a>
+      <a href="#prototype">Prototype</a>
+      <a href="#signup">Join Waitlist</a>
+    </nav>
+
+    <button class="nav-cta" onclick="scrollToSignup()">Notify Me</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">Smart Bedside Mist Alarm Clock</p>
+
+        <h1>Wake Up With a Gentle Mist, Not Just Noise.</h1>
+
+        <p class="hero-text">
+          MistWake combines a soft digital alarm, a compact water mist system,
+          and a modern bedside clock design to create a calmer way to start your morning.
+        </p>
+
+        <div class="hero-buttons">
+          <button class="primary-btn" onclick="scrollToSignup()">Join the Waitlist</button>
+          <button class="secondary-btn" onclick="scrollToSection('features')">Explore Features</button>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <strong>06:30</strong>
+            <span>gentle wake mode</span>
+          </div>
+          <div>
+            <strong>Compact</strong>
+            <span>bedside design</span>
+          </div>
+          <div>
+            <strong>Mist + Sound</strong>
+            <span>multi-sensory alarm</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-product">
+        <div class="mist mist-one"></div>
+        <div class="mist mist-two"></div>
+        <div class="product-card">
+          <div class="clock-face">
+            <span class="time">06:30</span>
+            <span class="label">MistWake</span>
+          </div>
+          <div class="water-window"></div>
+          <div class="mist-arm"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section problem-section">
+      <div class="section-header">
+        <p class="eyebrow">The Problem</p>
+        <h2>Regular alarms shock you awake.</h2>
+        <p>
+          Loud alarms work, but they are aggressive. MistWake is designed for people who want
+          a more peaceful, physical, and modern wake-up experience.
+        </p>
+      </div>
+
+      <div class="cards three">
+        <article class="card">
+          <span class="icon">🔊</span>
+          <h3>Harsh sounds</h3>
+          <p>Traditional alarms rely on noise first, which can make mornings feel stressful.</p>
+        </article>
+
+        <article class="card">
+          <span class="icon">😴</span>
+          <h3>Easy to ignore</h3>
+          <p>Phone alarms are too easy to snooze, silence, or sleep through.</p>
+        </article>
+
+        <article class="card">
+          <span class="icon">💧</span>
+          <h3>No physical cue</h3>
+          <p>MistWake adds a light mist cue to help your body notice it is time to wake.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="section-header">
+        <p class="eyebrow">Core Features</p>
+        <h2>Designed around the MistWake experience.</h2>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-card active" onclick="showFeature(0)">
+          <h3>Adjustable Mist Arm</h3>
+          <p>A compact articulated mist arm directs the mist toward your pillow area.</p>
+        </div>
+
+        <div class="feature-card" onclick="showFeature(1)">
+          <h3>Warm Amber Display</h3>
+          <p>A dark front display with soft amber digits keeps the bedside look clean.</p>
+        </div>
+
+        <div class="feature-card" onclick="showFeature(2)">
+          <h3>Internal Reservoir</h3>
+          <p>A slim side water-level window shows MIN/MAX without making the product bulky.</p>
+        </div>
+
+        <div class="feature-card" onclick="showFeature(3)">
+          <h3>Simple Top Controls</h3>
+          <p>Minimal top-front controls keep the interface easy to understand.</p>
+        </div>
+      </div>
+
+      <div class="feature-preview">
+        <h3 id="feature-title">Adjustable Mist Arm</h3>
+        <p id="feature-desc">
+          Direct the mist where you need it while keeping the clock compact and clean on your nightstand.
+        </p>
+      </div>
+    </section>
+
+    <section class="section how-section" id="how">
+      <div class="section-header">
+        <p class="eyebrow">How It Works</p>
+        <h2>A calmer wake-up sequence.</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <span>1</span>
+          <div>
+            <h3>Set your wake time</h3>
+            <p>Use the front/top controls to set your preferred alarm time.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <span>2</span>
+          <div>
+            <h3>Fill the compact reservoir</h3>
+            <p>Add water through the top fill cap and check the level window.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <span>3</span>
+          <div>
+            <h3>Wake with mist + sound</h3>
+            <p>At your alarm time, MistWake activates a gentle mist cue with alarm feedback.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section prototype-section" id="prototype">
+      <div class="prototype-content">
+        <p class="eyebrow">Prototype Stage</p>
+        <h2>Built for a Kickstarter-ready demo.</h2>
+        <p>
+          MistWake is currently being developed as a works-like prototype using practical off-the-shelf
+          components to demonstrate the core mist alarm experience.
+        </p>
+
+        <div class="progress-box">
+          <div class="progress-label">
+            <span>Prototype readiness</span>
+            <strong id="progress-value">72%</strong>
+          </div>
+          <div class="progress-bar">
+            <div id="progress-fill"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="prototype-panel">
+        <button onclick="setPrototypeProgress(45)">Concept</button>
+        <button onclick="setPrototypeProgress(72)">Works-Like Demo</button>
+        <button onclick="setPrototypeProgress(90)">Kickstarter Demo</button>
+      </div>
+    </section>
+
+    <section class="section signup-section" id="signup">
+      <div class="signup-card">
+        <p class="eyebrow">Join the Launch List</p>
+        <h2>Be first to know when MistWake launches.</h2>
+        <p>
+          Get updates about the prototype, Kickstarter launch, early-bird rewards, and product improvements.
+        </p>
+
+        <form id="waitlist-form">
+          <input type="email" id="email" placeholder="Enter your email" required />
+          <button type="submit">Join Waitlist</button>
+        </form>
+
+        <p id="form-message"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 MistWake. Wake up gently.</p>
+    <a href="#">Back to top</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
