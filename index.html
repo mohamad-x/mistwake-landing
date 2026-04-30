@@ -265,16 +265,27 @@
           Get updates about the prototype, Kickstarter launch, early-bird rewards, and product improvements.
         </p>
 
-        <a
-            class="google-form-btn"
-            href="https://docs.google.com/forms/d/e/1FAIpQLSfZo_Jkvh-63lx4Xw7ATk1gq0Trrhzw4v2I991Rjdh9OaQ0gQ/viewform?usp=dialog"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            Join the MistWake Waitlist
-        </a>
+        <iframe name="hidden-google-form" id="hidden-google-form" style="display: none;" onload="handleGoogleFormLoad()"></iframe>
 
-        <p id="form-message">Opens a short Google Form in a new tab.</p>
+        <form
+          id="waitlist-form"
+          class="waitlist-inline-form"
+          action="https://docs.google.com/forms/d/e/1FAIpQLSfZo_Jkvh-63lx4Xw7ATk1gq0Trrhzw4v2I991Rjdh9OaQ0gQ/formResponse"
+          method="POST"
+          target="hidden-google-form"
+          onsubmit="return handleWaitlistSubmit()"
+        >
+          <input
+            type="email"
+            name="entry.1340972973"
+            id="email"
+            placeholder="Enter your email"
+            required
+          />
+          <button type="submit">Join the Waitlist</button>
+        </form>
+
+        <p id="form-message">No redirect. Your email submits directly from this page.</p>
       </div>
     </section>
   </main>
