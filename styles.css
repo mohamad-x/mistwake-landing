@@ -670,3 +670,22 @@ footer a {
   border-radius: 10px;
   background: linear-gradient(135deg, var(--amber), var(--wood));
 }
+
+@media (max-width: 950px) {
+  .hero-top-logo {
+    position: static;
+    transform: none;
+    justify-self: center;
+    margin-bottom: 24px;
+  }
+
+  .hero-top-logo img {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+  }
+
+  .hero {
+    padding-top: 32px;
+  }
+}
