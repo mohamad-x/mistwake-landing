@@ -606,3 +606,23 @@ footer a {
     gap: 12px;
   }
 }
+
+.google-form-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  min-width: 260px;
+  padding: 13px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--amber), var(--amber-dark));
+  color: #1c1308;
+  box-shadow: 0 14px 36px rgba(255, 184, 77, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.google-form-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 42px rgba(255, 184, 77, 0.3);
+}
