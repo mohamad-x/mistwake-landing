@@ -20,73 +20,59 @@
     </div>
 
     <nav class="nav-links">
+      <a href="#problem">Problem</a>
+      <a href="#benefits">Benefits</a>
       <a href="#features">Features</a>
-      <a href="#how">How It Works</a>
-      <a href="#prototype">Prototype</a>
+      <a href="#kickstarter">Kickstarter</a>
       <a href="#signup">Join Waitlist</a>
     </nav>
 
-    <button class="nav-cta" onclick="scrollToSignup()">Notify Me</button>
+    <button class="nav-cta" onclick="scrollToSignup()">Early-Bird Access</button>
   </header>
 
   <main>
     <section class="hero">
       <div class="hero-content">
-        <p class="eyebrow">Smart Bedside Mist Alarm Clock</p>
+        <p class="eyebrow">Coming Soon to Kickstarter</p>
 
         <h1>Wake Up With a Gentle Mist, Not Just Noise.</h1>
 
         <p class="hero-text">
-          MistWake combines a soft digital alarm, a compact water mist system,
-          and a modern bedside clock design to create a calmer way to start your morning.
+          MistWake is a bedside mist alarm clock designed to make mornings calmer by combining a warm digital display, gentle sound, and a refreshing mist cue.
         </p>
 
         <div class="hero-buttons">
-          <button class="primary-btn" onclick="scrollToSignup()">Join the Waitlist</button>
-          <button class="secondary-btn" onclick="scrollToSection('features')">Explore Features</button>
+          <button class="primary-btn" onclick="scrollToSignup()">Join for Early-Bird Access</button>
+          <button class="secondary-btn" onclick="scrollToSection('kickstarter')">View Launch Pricing</button>
         </div>
 
         <div class="hero-stats">
           <div>
-            <strong>06:30</strong>
-            <span>gentle wake mode</span>
+            <strong>$89</strong>
+            <span>planned early bird</span>
           </div>
           <div>
-            <strong>Compact</strong>
-            <span>bedside design</span>
+            <strong>$99</strong>
+            <span>planned standard</span>
           </div>
           <div>
-            <strong>Mist + Sound</strong>
-            <span>multi-sensory alarm</span>
+            <strong>$129</strong>
+            <span>planned MSRP</span>
           </div>
         </div>
       </div>
 
-      <div class="hero-product">
-        <div class="mist mist-one"></div>
-        <div class="mist mist-two"></div>
-        <div class="product-card">
-          <div class="clock-face">
-            <span class="time">06:30</span>
-            <span class="label">MistWake</span>
-          </div>
-          <div class="water-window"></div>
-          <div class="mist-arm"></div>
-        </div>
+      <div class="hero-image-card">
+        <img src="assets/mistwake-hero-bedroom.png" alt="MistWake mist alarm clock beside a bed at sunrise" />
       </div>
     </section>
 
-    <section class="section problem-section">
-      <div class="problem-visual">
-        <img src="assets/mistwake-hero-bedroom.png" alt="MistWake mist alarm clock beside a bed at sunrise" />
-      </div>
-
+    <section class="section problem-section" id="problem">
       <div class="section-header">
         <p class="eyebrow">The Problem</p>
         <h2>Regular alarms shock you awake.</h2>
         <p>
-          Loud alarms work, but they are aggressive. MistWake is designed for people who want
-          a more peaceful, physical, and modern wake-up experience.
+          Loud alarms work, but they are aggressive. Phone alarms are easy to snooze, and most bedside clocks give you only sound. MistWake adds a physical mist cue to help your body notice it is time to wake.
         </p>
       </div>
 
@@ -106,7 +92,38 @@
         <article class="card">
           <span class="icon">💧</span>
           <h3>No physical cue</h3>
-          <p>MistWake adds a light mist cue to help your body notice it is time to wake.</p>
+          <p>MistWake adds a light mist cue to make the wake-up signal harder to miss.</p>
+        </article>
+      </div>
+
+      <div class="section-cta">
+        <button class="primary-btn" onclick="scrollToSignup()">Join the Waitlist for Early-Bird Access</button>
+      </div>
+    </section>
+
+    <section class="section benefits-section" id="benefits">
+      <div class="section-header">
+        <p class="eyebrow">Why MistWake Is Different</p>
+        <h2>A calmer alarm that your body can actually feel.</h2>
+      </div>
+
+      <div class="cards three">
+        <article class="card highlight-card">
+          <span class="icon">🌅</span>
+          <h3>Gentler than loud alarms</h3>
+          <p>Designed for people who want a softer morning routine instead of being startled awake.</p>
+        </article>
+
+        <article class="card highlight-card">
+          <span class="icon">📵</span>
+          <h3>Harder to ignore than phones</h3>
+          <p>A physical mist cue helps reduce the habit of blindly tapping snooze and going back to sleep.</p>
+        </article>
+
+        <article class="card highlight-card">
+          <span class="icon">🛏️</span>
+          <h3>Made for the nightstand</h3>
+          <p>A compact bedside design combines time, alarm, water level, and mist delivery in one product.</p>
         </article>
       </div>
     </section>
@@ -158,7 +175,7 @@
           <span>1</span>
           <div>
             <h3>Set your wake time</h3>
-            <p>Use the front/top controls to set your preferred alarm time.</p>
+            <p>Use the simple controls to set your preferred alarm time.</p>
           </div>
         </div>
 
@@ -166,7 +183,7 @@
           <span>2</span>
           <div>
             <h3>Fill the compact reservoir</h3>
-            <p>Add water through the top fill cap and check the level window.</p>
+            <p>Add water and check the side level window before sleep.</p>
           </div>
         </div>
 
@@ -180,30 +197,52 @@
       </div>
     </section>
 
+    <section class="section kickstarter-section" id="kickstarter">
+      <div class="section-header centered">
+        <p class="eyebrow">Kickstarter Launch Plan</p>
+        <h2>Planned early-bird pricing.</h2>
+        <p>Join the waitlist to be notified before the Kickstarter campaign goes live.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <article class="price-card featured-price">
+          <span class="badge">Best Early Access</span>
+          <h3>Early Bird</h3>
+          <strong>$89</strong>
+          <p>Limited launch reward for first backers.</p>
+        </article>
+
+        <article class="price-card">
+          <h3>Standard Kickstarter</h3>
+          <strong>$99</strong>
+          <p>Planned campaign price after early-bird slots.</p>
+        </article>
+
+        <article class="price-card">
+          <h3>Planned MSRP</h3>
+          <strong>$129</strong>
+          <p>Expected retail price after production.</p>
+        </article>
+      </div>
+    </section>
+
     <section class="section prototype-section" id="prototype">
       <div class="prototype-content">
         <p class="eyebrow">Prototype Stage</p>
-        <h2>Built for a Kickstarter-ready demo.</h2>
+        <h2>Development is in progress.</h2>
         <p>
-          MistWake is currently being developed as a works-like prototype using practical off-the-shelf
-          components to demonstrate the core mist alarm experience.
+          MistWake is currently being developed as a works-like prototype using practical off-the-shelf components to demonstrate the core mist alarm experience.
         </p>
-
-        <div class="progress-box">
-          <div class="progress-label">
-            <span>Prototype readiness</span>
-            <strong id="progress-value">72%</strong>
-          </div>
-          <div class="progress-bar">
-            <div id="progress-fill"></div>
-          </div>
-        </div>
+        <p class="disclaimer">
+          MistWake is currently in prototype development. Final design, features, and specifications may change before production.
+        </p>
       </div>
 
-      <div class="prototype-panel">
-        <button onclick="setPrototypeProgress(45)">Concept</button>
-        <button onclick="setPrototypeProgress(72)">Works-Like Demo</button>
-        <button onclick="setPrototypeProgress(90)">Kickstarter Demo</button>
+      <div class="prototype-panel roadmap-panel">
+        <div class="roadmap-item complete">Concept Design</div>
+        <div class="roadmap-item active-stage">Works-Like Prototype</div>
+        <div class="roadmap-item">Kickstarter Demo</div>
+        <div class="roadmap-item">Production Planning</div>
       </div>
     </section>
 
