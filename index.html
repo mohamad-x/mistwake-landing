@@ -24,49 +24,47 @@
   </header>
 
   <main>
-    <section class="hero hero-simple">
-      <div class="hero-image-card hero-shot-card">
-        <img src="assets/mistwake-hero-bedroom.png?v=4" alt="MistWake hero shot showing the product, VIP pricing, and Kickstarter launch details" />
+    <section class="hero-section">
+      <div class="hero-shot-card">
+        <img src="assets/mistwake-hero-bedroom.png?v=5" alt="MistWake hero shot showing the product, VIP pricing, and Kickstarter launch details" />
       </div>
     </section>
 
-    <section class="vip-strip-section" id="vip">
-      <div class="vip-strip">
-        <div class="vip-copy">
-          <p class="eyebrow">VIP Prelaunch Access</p>
-          <h1>Reserve your spot for $1.</h1>
-          <p>Get notified first when the planned $89 VIP Early Bird reward goes live on Kickstarter.</p>
-        </div>
-        <div class="vip-actions">
-          <a class="primary-btn" href="https://buy.stripe.com/aFa7sLcA3aXC3IIfQidIA00" target="_blank" rel="noopener">Reserve VIP Access for $1</a>
-          <button class="secondary-btn" onclick="scrollToSignup()">Join Free List</button>
-        </div>
+    <section class="reservation-section" id="vip">
+      <div class="section-header centered">
+        <p class="eyebrow">VIP Prelaunch Access</p>
+        <h1>Reserve VIP access for $1.</h1>
+        <p>Get notified first when the planned $89 VIP Early Bird reward goes live on Kickstarter.</p>
       </div>
-      <p class="mini-note reservation-note">The $1 reservation gives VIP launch access only. It does not purchase MistWake. You will still need to pledge on Kickstarter to receive the product.</p>
+
+      <div class="action-row">
+        <a class="primary-btn" href="https://buy.stripe.com/aFa7sLcA3aXC3IIfQidIA00" target="_blank" rel="noopener">Reserve VIP Access for $1</a>
+        <button class="secondary-btn" onclick="scrollToSignup()">Join Free List</button>
+      </div>
     </section>
 
-    <section class="section price-section">
-      <div class="pricing-grid compact-pricing">
-        <article class="price-card"><span class="badge secondary-badge">MSRP</span><strong>$139</strong></article>
-        <article class="price-card featured-price"><span class="badge">VIP Early Bird</span><strong>$89</strong></article>
-        <article class="price-card"><span class="badge secondary-badge">You Save</span><strong>$50</strong></article>
+    <section class="price-section">
+      <div class="pricing-grid">
+        <article class="price-card"><span>MSRP</span><strong>$139</strong></article>
+        <article class="price-card featured-price"><span>VIP Early Bird</span><strong>$89</strong></article>
+        <article class="price-card"><span>You Save</span><strong>$50</strong></article>
       </div>
     </section>
 
     <section class="section benefits-section" id="features">
-      <div class="section-header centered compact-header">
+      <div class="section-header centered">
         <p class="eyebrow">MistWake Details</p>
         <h2>Built for mornings you cannot afford to miss.</h2>
       </div>
       <div class="cards three">
-        <article class="card highlight-card"><h3>Controlled mist cue</h3><p>A physical wake-up cue for when sound alone is too easy to ignore.</p></article>
-        <article class="card highlight-card"><h3>Adjustable nozzle</h3><p>Position the spray direction toward your preferred wake-up angle.</p></article>
-        <article class="card highlight-card"><h3>Simple bedside control</h3><p>Touch display, spray control, and a nightstand-ready design.</p></article>
+        <article class="card"><h3>Controlled mist cue</h3><p>A physical wake-up cue for when sound alone is too easy to ignore.</p></article>
+        <article class="card"><h3>Adjustable nozzle</h3><p>Position the spray direction toward your preferred wake-up angle.</p></article>
+        <article class="card"><h3>Simple bedside control</h3><p>Touch display, spray control, and a nightstand-ready design.</p></article>
       </div>
     </section>
 
     <section class="section faq-section" id="faq">
-      <div class="section-header centered compact-header">
+      <div class="section-header centered">
         <p class="eyebrow">FAQ</p>
         <h2>Quick answers before launch.</h2>
       </div>
@@ -78,7 +76,7 @@
     </section>
 
     <section class="section signup-section" id="signup">
-      <div class="signup-card free-card">
+      <div class="signup-card">
         <p class="eyebrow">Free Launch List</p>
         <h2>Not ready to reserve?</h2>
         <p>Join the free list for Kickstarter launch updates and VIP Early Bird reminders.</p>
@@ -99,6 +97,9 @@
     </div>
     <a href="#">Back to top</a>
   </footer>
+
+  <p class="bottom-disclaimer">The $1 reservation gives VIP launch access only. It does not purchase MistWake. You will still need to pledge on Kickstarter to receive the product.</p>
+
   <script src="script.js"></script>
 </body>
 </html>
