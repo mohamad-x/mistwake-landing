@@ -90,6 +90,9 @@ button {
 .secondary-btn,
 .google-form-btn,
 .prototype-panel button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: 0;
   border-radius: 999px;
   padding: 13px 22px;
@@ -120,6 +123,17 @@ button {
   position: relative;
 }
 
+.hero-simple {
+  min-height: auto;
+  display: block;
+  padding: 46px 6% 28px;
+}
+
+.hero-shot-card {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
 .eyebrow {
   color: var(--amber);
   text-transform: uppercase;
@@ -132,11 +146,12 @@ button {
 .hero h1,
 .section-header h2,
 .prototype-content h2,
+.signup-card h1,
 .signup-card h2 {
-  font-size: clamp(2.4rem, 6vw, 5.55rem);
-  line-height: 0.95;
+  font-size: clamp(2.25rem, 5vw, 4.75rem);
+  line-height: 0.98;
   letter-spacing: -2px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .hero-text,
@@ -147,7 +162,8 @@ button {
 .card p,
 .feature-card p,
 .timeline-item p,
-.feature-preview p {
+.feature-preview p,
+.mini-note {
   color: var(--muted);
 }
 
@@ -161,7 +177,11 @@ button {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
-  margin-bottom: 38px;
+  margin-bottom: 26px;
+}
+
+.centered-buttons {
+  justify-content: center;
 }
 
 .hero-stats {
@@ -216,12 +236,12 @@ button {
 }
 
 .section {
-  padding: 90px 6%;
+  padding: 72px 6%;
 }
 
 .section-header {
   max-width: 820px;
-  margin-bottom: 42px;
+  margin-bottom: 34px;
 }
 
 .section-header.centered {
@@ -230,13 +250,14 @@ button {
   text-align: center;
 }
 
-.section-header h2,
-.prototype-content h2,
+.compact-header h2,
 .signup-card h2 {
-  font-size: clamp(2.1rem, 4vw, 4rem);
+  font-size: clamp(2rem, 4vw, 3.4rem);
 }
 
-.cards.three {
+.cards.three,
+.pricing-grid,
+.faq-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 22px;
@@ -249,17 +270,6 @@ button {
 .prototype-content,
 .prototype-panel {
   padding: 28px;
-}
-
-.icon {
-  display: inline-grid;
-  place-items: center;
-  width: 52px;
-  height: 52px;
-  border-radius: 18px;
-  background: rgba(255, 184, 77, 0.12);
-  margin-bottom: 18px;
-  font-size: 1.4rem;
 }
 
 .card h3,
@@ -281,62 +291,9 @@ button {
   justify-content: center;
 }
 
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-  margin-bottom: 22px;
-}
-
-.feature-card {
-  transition: 0.25s ease;
-}
-
-.feature-card:hover,
-.feature-card.active {
-  transform: translateY(-6px);
-  border-color: rgba(255, 184, 77, 0.5);
-  background: rgba(255, 184, 77, 0.09);
-}
-
-.feature-preview {
-  min-height: 130px;
-  background: linear-gradient(135deg, rgba(255, 184, 77, 0.12), rgba(120, 213, 255, 0.08)), var(--card);
-}
-
-.how-section,
-.kickstarter-section {
+.kickstarter-section,
+.faq-section {
   background: rgba(255, 255, 255, 0.025);
-}
-
-.timeline {
-  display: grid;
-  gap: 20px;
-  max-width: 850px;
-}
-
-.timeline-item {
-  display: grid;
-  grid-template-columns: 60px 1fr;
-  gap: 22px;
-  align-items: start;
-}
-
-.timeline-item span {
-  width: 54px;
-  height: 54px;
-  display: grid;
-  place-items: center;
-  border-radius: 18px;
-  background: linear-gradient(135deg, var(--amber), var(--wood));
-  color: #1c1308;
-  font-weight: 900;
-}
-
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
 }
 
 .price-card {
@@ -344,12 +301,13 @@ button {
   text-align: center;
 }
 
-.price-card strong {
+.price-card strong,
+.vip-price-strip strong {
   display: block;
   color: var(--amber);
-  font-size: clamp(2.3rem, 5vw, 4rem);
+  font-size: clamp(2.2rem, 5vw, 3.75rem);
   line-height: 1;
-  margin: 18px 0;
+  margin-top: 10px;
 }
 
 .featured-price {
@@ -370,49 +328,9 @@ button {
   letter-spacing: 1px;
 }
 
-.prototype-section {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 24px;
-  align-items: stretch;
-}
-
-.disclaimer {
-  margin-top: 22px;
-  padding: 16px;
-  border-radius: 18px;
-  background: rgba(255, 184, 77, 0.08);
-  border: 1px solid rgba(255, 184, 77, 0.2);
-}
-
-.roadmap-panel {
-  display: grid;
-  gap: 14px;
-  align-content: center;
-}
-
-.roadmap-item {
-  padding: 16px 18px;
-  border-radius: 18px;
-  color: var(--muted);
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid var(--card-border);
-  font-weight: 800;
-}
-
-.roadmap-item.complete {
+.secondary-badge {
+  background: rgba(255, 255, 255, 0.12);
   color: var(--text);
-  border-color: rgba(120, 213, 255, 0.35);
-}
-
-.roadmap-item.complete::before {
-  content: "✓ ";
-  color: var(--mist);
-}
-
-.roadmap-item.active-stage {
-  color: #1c1308;
-  background: linear-gradient(135deg, var(--amber), var(--amber-dark));
 }
 
 .signup-section {
@@ -421,26 +339,82 @@ button {
 }
 
 .signup-card {
-  width: min(100%, 820px);
-  padding: 46px;
+  width: min(100%, 900px);
+  padding: 44px;
   text-align: center;
   background: radial-gradient(circle at top, rgba(255, 184, 77, 0.16), transparent 55%), var(--card);
 }
 
-.google-form-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 30px;
-  min-width: 260px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.vip-card {
+  width: min(100%, 980px);
 }
 
-.google-form-btn:hover,
-.primary-btn:hover,
-.nav-cta:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 18px 42px rgba(255, 184, 77, 0.3);
+.vip-price-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 30px 0 28px;
+}
+
+.vip-price-strip div {
+  padding: 18px;
+  border-radius: 22px;
+  border: 1px solid var(--card-border);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.vip-price-strip span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.waitlist-inline-form {
+  width: min(100%, 560px);
+  margin: 30px auto 0;
+  display: flex;
+  gap: 12px;
+  padding: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03), 0 18px 48px rgba(0, 0, 0, 0.25);
+}
+
+.waitlist-inline-form input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--text);
+  padding: 0 18px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.waitlist-inline-form input::placeholder {
+  color: rgba(246, 241, 232, 0.58);
+}
+
+.waitlist-inline-form button {
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, var(--amber), var(--amber-dark));
+  color: #1c1308;
+  font-weight: 900;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.mini-note {
+  max-width: 760px;
+  margin: 18px auto 0;
+  font-size: 0.92rem;
 }
 
 #form-message {
@@ -475,23 +449,26 @@ footer a {
   background: linear-gradient(135deg, var(--amber), var(--wood));
 }
 
+.primary-btn:hover,
+.secondary-btn:hover,
+.nav-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 42px rgba(255, 184, 77, 0.3);
+}
+
 @media (max-width: 1100px) {
   .nav-links {
     display: none;
   }
 
-  .hero,
-  .prototype-section {
+  .hero {
     grid-template-columns: 1fr;
   }
 
-  .hero {
-    padding-top: 50px;
-  }
-
-  .feature-grid,
-  .pricing-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .pricing-grid,
+  .cards.three,
+  .faq-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -507,20 +484,8 @@ footer a {
     font-size: 0.8rem;
   }
 
-  .hero {
-    padding: 46px 6% 66px;
-    gap: 34px;
-  }
-
-  .hero h1 {
-    font-size: clamp(2.7rem, 15vw, 4.2rem);
-  }
-
-  .hero-stats,
-  .cards.three,
-  .feature-grid,
-  .pricing-grid {
-    grid-template-columns: 1fr;
+  .hero-simple {
+    padding: 24px 4% 12px;
   }
 
   .hero-image-card,
@@ -535,11 +500,32 @@ footer a {
   }
 
   .section {
-    padding: 68px 6%;
+    padding: 54px 6%;
   }
 
   .signup-card {
-    padding: 32px 22px;
+    padding: 30px 20px;
+  }
+
+  .vip-price-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .waitlist-inline-form {
+    flex-direction: column;
+    border-radius: 24px;
+    padding: 12px;
+  }
+
+  .waitlist-inline-form input {
+    width: 100%;
+    min-height: 50px;
+    padding: 0 14px;
+    text-align: center;
+  }
+
+  .waitlist-inline-form button {
+    width: 100%;
   }
 
   footer {
