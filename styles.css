@@ -1,14 +1,14 @@
 :root {
   --bg: #080b10;
-  --card: rgba(255, 255, 255, 0.075);
-  --card-strong: rgba(255, 255, 255, 0.105);
-  --card-border: rgba(255, 255, 255, 0.12);
-  --text: #f6f1e8;
+  --panel: rgba(255, 255, 255, 0.06);
+  --panel-strong: rgba(255, 255, 255, 0.095);
+  --border: rgba(255, 255, 255, 0.12);
+  --text: #f7f1e8;
   --muted: #b9b3aa;
   --amber: #ffb84d;
   --amber-dark: #d98b1f;
   --mist: #78d5ff;
-  --shadow: 0 22px 70px rgba(0, 0, 0, 0.42);
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
 }
 
 * {
@@ -24,11 +24,15 @@ html {
 body {
   font-family: Arial, Helvetica, sans-serif;
   background:
-    radial-gradient(circle at top left, rgba(120, 213, 255, 0.11), transparent 30%),
-    radial-gradient(circle at top right, rgba(255, 184, 77, 0.12), transparent 28%),
+    radial-gradient(circle at top left, rgba(120, 213, 255, 0.1), transparent 28%),
+    radial-gradient(circle at top right, rgba(255, 184, 77, 0.12), transparent 26%),
     var(--bg);
   color: var(--text);
   line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
 }
 
 a {
@@ -36,8 +40,12 @@ a {
   text-decoration: none;
 }
 
-button {
+button,
+input {
   font-family: inherit;
+}
+
+button {
   cursor: pointer;
 }
 
@@ -45,11 +53,12 @@ button {
   position: sticky;
   top: 0;
   z-index: 100;
-  height: 72px;
+  min-height: 72px;
   padding: 0 6%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 18px;
   background: rgba(8, 11, 16, 0.9);
   backdrop-filter: blur(18px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -60,6 +69,7 @@ button {
   align-items: center;
   gap: 12px;
   font-weight: 900;
+  letter-spacing: -0.2px;
 }
 
 .logo-img {
@@ -89,9 +99,9 @@ button {
   justify-content: center;
   border: 0;
   border-radius: 999px;
-  padding: 13px 22px;
+  padding: 14px 24px;
   font-weight: 900;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
 
 .nav-cta,
@@ -104,94 +114,32 @@ button {
 .secondary-btn {
   background: rgba(255, 255, 255, 0.09);
   color: var(--text);
-  border: 1px solid var(--card-border);
+  border: 1px solid var(--border);
 }
 
+.nav-cta:hover,
 .primary-btn:hover,
-.secondary-btn:hover,
-.nav-cta:hover {
+.secondary-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 18px 42px rgba(255, 184, 77, 0.28);
 }
 
 .hero-section {
-  padding: 34px 5% 22px;
+  padding: 48px 5% 36px;
 }
 
-.hero-shot-card {
+.hero-shell {
   width: min(100%, 1180px);
   margin: 0 auto;
-  border-radius: 26px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 28px 84px rgba(0, 0, 0, 0.5);
-  background: rgba(255, 255, 255, 0.04);
-}
-
-.hero-shot-card img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.vip-strip-section {
-  padding: 24px 5% 36px;
-}
-
-.vip-strip {
-  width: min(100%, 1120px);
-  margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 28px;
-  align-items: center;
-  padding: 28px;
-  border-radius: 28px;
-  border: 1px solid rgba(255, 184, 77, 0.22);
-  background: linear-gradient(135deg, rgba(255, 184, 77, 0.12), rgba(120, 213, 255, 0.06)), var(--card);
-  box-shadow: var(--shadow);
-}
-
-.vip-copy h1 {
-  font-size: clamp(2rem, 4.4vw, 3.6rem);
-  line-height: 1;
-  letter-spacing: -1.5px;
-  margin-bottom: 12px;
-}
-
-.vip-copy p {
-  max-width: 680px;
-  color: var(--muted);
-  font-size: 1.05rem;
-}
-
-.vip-actions {
-  display: grid;
-  grid-template-columns: repeat(2, max-content);
-  gap: 12px;
-  justify-content: end;
+  grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr);
+  gap: 38px;
   align-items: center;
 }
 
-.checkout-note {
-  grid-column: 1 / -1;
-  width: 100%;
-  color: var(--muted);
-  font-size: 0.88rem;
-  text-align: center;
-  margin-top: 2px;
-}
-
-.reservation-section,
-.price-section,
-.section {
-  padding: 48px 6%;
-}
-
-.section-header {
-  width: min(100%, 760px);
-  margin: 0 auto 28px;
-  text-align: center;
+.hero-copy {
+  position: relative;
+  z-index: 2;
 }
 
 .eyebrow {
@@ -200,83 +148,159 @@ button {
   letter-spacing: 2px;
   font-size: 0.76rem;
   font-weight: 900;
-  margin-bottom: 10px;
-}
-
-.section-header h1,
-.section-header h2,
-.signup-card h2 {
-  font-size: clamp(2rem, 4.2vw, 3.5rem);
-  line-height: 1.02;
-  letter-spacing: -1.3px;
   margin-bottom: 12px;
 }
 
+.hero-copy h1,
+.section-header h2,
+.two-column h2,
+.signup-card h2,
+.final-cta-card h2,
+.safety-card h2 {
+  font-size: clamp(2.25rem, 5.2vw, 5.4rem);
+  line-height: 0.96;
+  letter-spacing: -2.2px;
+}
+
+.hero-copy h1 {
+  max-width: 760px;
+}
+
+.hero-subtitle {
+  max-width: 600px;
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+}
+
+.hero-actions {
+  margin-top: 28px;
+}
+
+.hero-note {
+  margin-top: 14px;
+  color: rgba(247, 241, 232, 0.72);
+  font-size: 0.95rem;
+}
+
+.trust-row {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.trust-row span,
+.safety-list span {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 9px 13px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  color: rgba(247, 241, 232, 0.82);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.hero-visual {
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: var(--shadow);
+}
+
+.hero-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.section {
+  padding: 62px 6%;
+}
+
+.two-column {
+  width: min(100%, 1080px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 44px;
+  align-items: start;
+}
+
+.two-column.compact {
+  align-items: center;
+}
+
+.two-column h2,
+.section-header h2,
+.signup-card h2,
+.final-cta-card h2,
+.safety-card h2 {
+  font-size: clamp(2rem, 4vw, 3.6rem);
+}
+
+.section-copy p,
 .section-header p,
 .signup-card p,
-.card p,
-.proof-line {
+.final-cta-card p,
+.safety-card p,
+.card p {
   color: var(--muted);
 }
 
+.section-copy p + p {
+  margin-top: 16px;
+}
+
+.problem-section {
+  padding-top: 44px;
+}
+
+.solution-section,
+.faq-section {
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.section-header {
+  width: min(100%, 820px);
+  margin: 0 auto 30px;
+  text-align: center;
+}
+
+.section-header p {
+  margin: 0 auto;
+  max-width: 720px;
+}
+
 .proof-line {
-  margin-top: 10px;
-  color: var(--amber);
+  margin-top: 12px !important;
+  color: var(--amber) !important;
   font-weight: 800;
 }
 
-.price-section {
-  padding-top: 8px;
-  padding-bottom: 36px;
-}
-
-.pricing-grid,
 .cards.three {
-  width: min(100%, 980px);
+  width: min(100%, 1040px);
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
 }
 
-.price-card,
+.feature-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .card,
-.signup-card {
-  background: var(--card);
-  border: 1px solid var(--card-border);
-  border-radius: 22px;
+.signup-card,
+.safety-card,
+.final-cta-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 24px;
   box-shadow: var(--shadow);
-}
-
-.price-card {
-  padding: 22px 18px;
-  text-align: center;
-}
-
-.price-card span {
-  display: block;
-  color: var(--muted);
-  font-size: 0.8rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.price-card strong {
-  display: block;
-  color: var(--amber);
-  font-size: clamp(2.1rem, 4.8vw, 3.4rem);
-  line-height: 1;
-  margin-top: 8px;
-}
-
-.featured-price {
-  background: linear-gradient(135deg, rgba(255, 184, 77, 0.16), rgba(120, 213, 255, 0.08)), var(--card-strong);
-  border-color: rgba(255, 184, 77, 0.42);
-}
-
-.benefits-section {
-  padding-top: 42px;
 }
 
 .card {
@@ -285,18 +309,33 @@ button {
 
 .card h3 {
   margin-bottom: 8px;
-  font-size: 1.18rem;
+  font-size: 1.16rem;
 }
 
-.faq-section {
-  background: rgba(255, 255, 255, 0.025);
-}
-
-.faq-list {
-  width: min(100%, 860px);
+.safety-card {
+  width: min(100%, 1080px);
   margin: 0 auto;
   display: grid;
-  gap: 14px;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 34px;
+  align-items: center;
+  padding: 34px;
+  background:
+    radial-gradient(circle at top right, rgba(120, 213, 255, 0.12), transparent 40%),
+    radial-gradient(circle at bottom left, rgba(255, 184, 77, 0.12), transparent 38%),
+    var(--panel);
+}
+
+.safety-card p {
+  margin-top: 16px;
+  max-width: 680px;
+}
+
+.safety-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
 }
 
 .signup-section {
@@ -305,21 +344,22 @@ button {
 }
 
 .signup-card {
-  width: min(100%, 720px);
-  padding: 36px;
+  width: min(100%, 760px);
+  padding: 40px;
   text-align: center;
-  background: radial-gradient(circle at top, rgba(255, 184, 77, 0.12), transparent 55%), var(--card);
+  background: radial-gradient(circle at top, rgba(255, 184, 77, 0.13), transparent 55%), var(--panel);
 }
 
 .waitlist-inline-form {
-  width: min(100%, 560px);
-  margin: 26px auto 0;
+  width: min(100%, 580px);
+  margin: 28px auto 0;
   display: flex;
   gap: 10px;
   padding: 8px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03), 0 18px 48px rgba(0, 0, 0, 0.25);
 }
 
 .waitlist-inline-form input {
@@ -335,7 +375,7 @@ button {
 }
 
 .waitlist-inline-form input::placeholder {
-  color: rgba(246, 241, 232, 0.58);
+  color: rgba(247, 241, 232, 0.58);
 }
 
 .waitlist-inline-form button {
@@ -347,18 +387,62 @@ button {
   font-weight: 900;
   cursor: pointer;
   white-space: nowrap;
+  box-shadow: 0 12px 30px rgba(255, 184, 77, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.waitlist-inline-form button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 38px rgba(255, 184, 77, 0.32);
+}
+
+.waitlist-inline-form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
 }
 
 #form-message {
+  min-height: 24px;
   margin-top: 16px;
   color: var(--mist);
-  font-weight: 700;
+  font-weight: 800;
+}
+
+#form-message.success-message {
+  color: var(--amber);
+}
+
+.faq-list {
+  width: min(100%, 920px);
+  margin: 0 auto;
+  display: grid;
+  gap: 14px;
+}
+
+.final-cta-section {
+  padding-top: 46px;
+}
+
+.final-cta-card {
+  width: min(100%, 920px);
+  margin: 0 auto;
+  padding: 42px;
+  text-align: center;
+  background:
+    linear-gradient(135deg, rgba(255, 184, 77, 0.13), rgba(120, 213, 255, 0.07)),
+    var(--panel-strong);
+}
+
+.final-cta-card p {
+  margin: 14px auto 24px;
+  max-width: 620px;
 }
 
 footer {
   padding: 28px 6%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   color: var(--muted);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -381,45 +465,59 @@ footer a {
   background: linear-gradient(135deg, var(--amber), var(--amber-dark));
 }
 
-.bottom-disclaimer {
-  padding: 18px 6% 28px;
-  max-width: 980px;
-  margin: 0 auto;
-  color: var(--muted);
-  text-align: center;
-  font-size: 0.86rem;
-}
-
 @media (max-width: 1050px) {
   .nav-links {
     display: none;
   }
 
-  .vip-strip {
+  .hero-shell,
+  .two-column,
+  .safety-card {
     grid-template-columns: 1fr;
+  }
+
+  .hero-shell {
+    gap: 28px;
+  }
+
+  .cards.three,
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy {
     text-align: center;
   }
 
-  .vip-actions {
-    grid-template-columns: repeat(2, max-content);
+  .hero-copy h1,
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .trust-row,
+  .safety-list {
     justify-content: center;
   }
 
-  .pricing-grid,
-  .cards.three {
-    grid-template-columns: 1fr;
+  .two-column {
+    text-align: center;
   }
 }
 
 @media (max-width: 700px) {
   .navbar {
-    min-height: 68px;
-    height: auto;
-    gap: 12px;
+    min-height: 66px;
+    padding: 10px 4%;
   }
 
   .logo span {
     font-size: 0.95rem;
+  }
+
+  .logo-img {
+    width: 34px;
+    height: 34px;
   }
 
   .nav-cta {
@@ -428,50 +526,61 @@ footer a {
   }
 
   .hero-section {
-    padding: 20px 4% 12px;
+    padding: 30px 4% 24px;
   }
 
-  .hero-shot-card {
-    border-radius: 18px;
+  .hero-copy h1 {
+    font-size: clamp(2.55rem, 13vw, 4rem);
+    line-height: 0.94;
+    letter-spacing: -1.8px;
   }
 
-  .vip-strip-section {
-    padding: 18px 4% 24px;
+  .hero-subtitle {
+    margin-top: 18px;
+    font-size: 1rem;
   }
 
-  .vip-strip {
-    padding: 24px 18px;
-    border-radius: 22px;
-  }
-
-  .vip-actions {
-    grid-template-columns: 1fr;
-    width: 100%;
-  }
-
-  .checkout-note {
-    grid-column: 1;
-  }
-
-  .primary-btn,
-  .secondary-btn {
-    width: 100%;
-  }
-
-  .reservation-section,
-  .price-section,
-  .section {
-    padding: 38px 5%;
-  }
-
-  .price-card,
+  .hero-visual,
   .card,
-  .signup-card {
+  .signup-card,
+  .safety-card,
+  .final-cta-card {
     border-radius: 20px;
   }
 
-  .signup-card {
-    padding: 28px 18px;
+  .hero-visual {
+    margin-top: 2px;
+  }
+
+  .trust-row span,
+  .safety-list span {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .section {
+    padding: 44px 5%;
+  }
+
+  .two-column,
+  .safety-card {
+    gap: 18px;
+  }
+
+  .two-column h2,
+  .section-header h2,
+  .signup-card h2,
+  .final-cta-card h2,
+  .safety-card h2 {
+    font-size: clamp(2rem, 10vw, 3rem);
+    letter-spacing: -1.2px;
+  }
+
+  .card,
+  .safety-card,
+  .signup-card,
+  .final-cta-card {
+    padding: 22px 18px;
   }
 
   .waitlist-inline-form {
@@ -487,12 +596,15 @@ footer a {
     text-align: center;
   }
 
-  .waitlist-inline-form button {
+  .waitlist-inline-form button,
+  .primary-btn,
+  .secondary-btn {
     width: 100%;
   }
 
   footer {
     flex-direction: column;
     gap: 14px;
+    text-align: center;
   }
 }
