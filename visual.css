@@ -20,13 +20,6 @@
   box-shadow: var(--shadow);
 }
 
-.visual-proof-image img,
-.product-strip-image img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
 .short-proof-card {
   padding: 28px;
   border-radius: 26px;
@@ -115,6 +108,76 @@
   font-size: 0.94rem;
 }
 
+.image-placeholder {
+  min-height: 360px;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  border: 1px dashed rgba(255, 184, 77, 0.5);
+  background:
+    linear-gradient(135deg, rgba(255, 184, 77, 0.09), rgba(120, 213, 255, 0.05)),
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.035) 0 12px, transparent 12px 24px),
+    rgba(255, 255, 255, 0.04);
+}
+
+.hero-visual.image-placeholder {
+  min-height: 390px;
+}
+
+.placeholder-content {
+  width: min(100%, 620px);
+  text-align: left;
+}
+
+.placeholder-label {
+  color: var(--amber);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.76rem;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+
+.placeholder-content h2 {
+  font-size: clamp(1.6rem, 3vw, 2.7rem);
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.placeholder-content p,
+.placeholder-content span {
+  display: block;
+  color: var(--muted);
+}
+
+.placeholder-content span {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  color: rgba(247, 241, 232, 0.7);
+}
+
+.logo-mark-placeholder {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--amber), var(--amber-dark));
+  color: #1c1308;
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.logo-mark-placeholder.small {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+}
+
 .mobile-break {
   display: none;
 }
@@ -137,14 +200,21 @@
 
   .short-proof-card,
   .big-visual-copy,
-  .compact-card {
+  .compact-card,
+  .image-placeholder {
     padding: 20px 18px;
   }
 
   .visual-proof-image,
   .product-strip-image,
-  .short-proof-card {
+  .short-proof-card,
+  .image-placeholder {
     border-radius: 20px;
+  }
+
+  .image-placeholder,
+  .hero-visual.image-placeholder {
+    min-height: 300px;
   }
 
   .compact-feature-grid {
