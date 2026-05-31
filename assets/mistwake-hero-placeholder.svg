@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="MistWake hero image placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#14181d"/><stop offset="1" stop-color="#251b13"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffb84d"/><stop offset="1" stop-color="#d98b1f"/></linearGradient>
+  </defs>
+  <rect width="1600" height="900" rx="34" fill="url(#bg)"/>
+  <rect x="46" y="46" width="1508" height="808" rx="30" fill="none" stroke="#ffb84d" stroke-opacity=".45" stroke-width="4" stroke-dasharray="18 16"/>
+  <text x="90" y="120" fill="#ffb84d" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" letter-spacing="5">HERO IMAGE PLACEHOLDER</text>
+  <text x="90" y="230" fill="#f7f1e8" font-family="Arial, Helvetica, sans-serif" font-size="74" font-weight="800">MistWake beside bed</text>
+  <text x="90" y="310" fill="#b9b3aa" font-family="Arial, Helvetica, sans-serif" font-size="34">Replace this file with the final landing-page hero image.</text>
+  <text x="90" y="380" fill="#b9b3aa" font-family="Arial, Helvetica, sans-serif" font-size="31">Required: product on nightstand, bed/pillow visible, nozzle aimed at pillow,</text>
+  <text x="90" y="425" fill="#b9b3aa" font-family="Arial, Helvetica, sans-serif" font-size="31">fine mist visible, waterproof mat underneath, no text overlays.</text>
+  <rect x="980" y="350" width="380" height="190" rx="18" fill="#0b0d10" stroke="#444"/>
+  <rect x="1185" y="405" width="130" height="82" rx="8" fill="#111" stroke="#333"/>
+  <text x="1206" y="457" fill="#ffb84d" font-family="Arial" font-size="34" font-weight="800">07:30</text>
+  <path d="M1130 350 C1130 250 1270 250 1270 350" fill="none" stroke="#0b0d10" stroke-width="34" stroke-linecap="round"/>
+  <path d="M1270 305 C1395 280 1480 240 1530 190" fill="none" stroke="#e6e6e6" stroke-opacity=".28" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="180" cy="725" r="20" fill="url(#accent)"/><text x="220" y="737" fill="#f7f1e8" font-family="Arial" font-size="28" font-weight="700">Recommended size: 1600×900 or 16:9</text>
+</svg>
