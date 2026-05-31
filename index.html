@@ -7,8 +7,8 @@
   <meta name="description" content="MistWake is a bedside alarm clock for heavy sleepers that uses sound and a controlled mist cue to help you wake up when it actually matters. Launching soon on Kickstarter." />
   <link rel="icon" type="image/png" href="assets/mistwake-logo.png.png" />
   <link rel="apple-touch-icon" href="assets/mistwake-logo.png.png" />
-  <link rel="stylesheet" href="styles.css?v=15" />
-  <link rel="stylesheet" href="visual.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=16" />
+  <link rel="stylesheet" href="visual.css?v=4" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QL64FNLP2R"></script>
@@ -56,10 +56,10 @@
     <nav class="nav-links" aria-label="Primary navigation">
       <a href="#proof">Prototype</a>
       <a href="#how">How It Works</a>
-      <a href="#features">Features</a>
+      <a href="#offer">$1 VIP Offer</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <button class="nav-cta free-list-button" onclick="scrollToSignup()">Get Early Access</button>
+    <a class="nav-cta reserve-link" href="https://buy.stripe.com/aFa7sLcA3aXC3IIfQidIA00" target="_blank" rel="noopener">Reserve for $1</a>
   </header>
 
   <main id="top">
@@ -69,18 +69,38 @@
           <p class="eyebrow">Launching soon on Kickstarter</p>
           <h1>Stop Sleeping Through Your Alarms</h1>
           <p class="hero-subtitle">MistWake wakes heavy sleepers with sound and a fine mist cue aimed toward the bed.</p>
-          <div class="hero-actions">
-            <button class="primary-btn free-list-button" onclick="scrollToSignup()">Get Early Kickstarter Access</button>
+          <div class="hero-actions split-actions">
+            <a class="primary-btn reserve-link" href="https://buy.stripe.com/aFa7sLcA3aXC3IIfQidIA00" target="_blank" rel="noopener">Reserve for $1</a>
+            <button class="secondary-btn free-list-button" onclick="scrollToSignup()">Join Free List</button>
           </div>
-          <p class="hero-note">Join the VIP list for launch updates and first access.</p>
+          <p class="hero-note">Reserve VIP access for $1 to unlock $50 off the planned MSRP when MistWake launches on Kickstarter.</p>
           <div class="trust-row" aria-label="MistWake key trust points">
+            <span>$1 VIP reservation</span>
+            <span>$50 off planned MSRP</span>
             <span>Working prototype built</span>
-            <span>Fine mist, not a splash</span>
-            <span>Adjustable nozzle</span>
           </div>
         </div>
         <div class="hero-visual demo-card" aria-label="Hero image placeholder">
           <img class="asset-placeholder-img" src="assets/mistwake-hero-image.svg?v=1" alt="Hero placeholder: MistWake on a nightstand beside a bed" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section offer-section" id="offer">
+      <div class="offer-card">
+        <div class="offer-copy">
+          <p class="eyebrow">VIP Kickstarter Offer</p>
+          <h2>Reserve your VIP spot for $1.</h2>
+          <p>Lock in VIP access before launch and get $50 off the planned MSRP when the Kickstarter campaign goes live.</p>
+          <p class="offer-disclaimer">The $1 reservation gives VIP launch access only. It does not purchase MistWake. You will still need to pledge on Kickstarter to receive the product.</p>
+        </div>
+        <div class="offer-box">
+          <span class="offer-kicker">VIP Reservation</span>
+          <strong>$1</strong>
+          <p>$50 off planned MSRP</p>
+          <a class="primary-btn reserve-link" href="https://buy.stripe.com/aFa7sLcA3aXC3IIfQidIA00" target="_blank" rel="noopener">Reserve VIP Access</a>
+          <button class="secondary-btn free-list-button" onclick="scrollToSignup()">Join free list instead</button>
+          <small>Secure checkout powered by Stripe.</small>
         </div>
       </div>
     </section>
@@ -170,16 +190,16 @@
 
     <section class="section signup-section" id="signup">
       <div class="signup-card">
-        <p class="eyebrow">VIP Launch List</p>
-        <h2>Get first access when MistWake launches.</h2>
-        <p>Join for Kickstarter launch updates and early access.</p>
+        <p class="eyebrow">Free Launch List</p>
+        <h2>Not ready to reserve?</h2>
+        <p>Join the free list for Kickstarter launch updates.</p>
         <iframe name="hidden-google-form" id="hidden-google-form" style="display: none;" onload="handleGoogleFormLoad()"></iframe>
         <form id="waitlist-form" class="waitlist-inline-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfZo_Jkvh-63lx4Xw7ATk1gq0Trrhzw4v2I991Rjdh9OaQ0gQ/formResponse" method="POST" target="hidden-google-form" onsubmit="return handleWaitlistSubmit()">
           <input type="email" name="entry.1340972973" id="email" placeholder="Enter your email" required />
-          <button type="submit">Get Early Access</button>
+          <button type="submit">Join Free List</button>
         </form>
         <p id="form-message" aria-live="polite"></p>
-        <p class="signup-microcopy">No spam. Just launch updates and early Kickstarter access.</p>
+        <p class="signup-microcopy">No spam. Just launch updates and Kickstarter reminders.</p>
       </div>
     </section>
 
@@ -189,20 +209,20 @@
         <h2>Quick answers before launch.</h2>
       </div>
       <div class="faq-list">
+        <article class="card"><h3>What does the $1 reservation include?</h3><p>It gives you VIP launch access and $50 off the planned MSRP when MistWake launches on Kickstarter. It does not buy the product.</p></article>
+        <article class="card"><h3>Will I still need to pledge on Kickstarter?</h3><p>Yes. The reservation gives VIP access only. You will still need to pledge on Kickstarter to receive MistWake.</p></article>
         <article class="card"><h3>Is MistWake available now?</h3><p>Not yet. MistWake is preparing for a Kickstarter launch.</p></article>
         <article class="card"><h3>Has the prototype been built?</h3><p>Yes. A functional works-like prototype has been built.</p></article>
-        <article class="card"><h3>Does joining the VIP list buy the product?</h3><p>No. It only signs you up for launch updates and first access when the Kickstarter campaign goes live.</p></article>
         <article class="card"><h3>Is this a splash of water?</h3><p>No. MistWake is designed around a controlled mist cue, not a large splash.</p></article>
-        <article class="card"><h3>Is it safe for electronics on my nightstand?</h3><p>The mist is designed to aim toward your wake-up position. Keep phones and electronics out of the mist path.</p></article>
         <article class="card"><h3>What comes in the box?</h3><p>The planned setup includes the MistWake alarm, power adapter, waterproof mat, and user guide.</p></article>
       </div>
     </section>
 
     <section class="section final-cta-section">
       <div class="final-cta-card">
-        <h2>Stop trusting the same alarm you already sleep through.</h2>
-        <p>Join the VIP list and be first to know when MistWake launches.</p>
-        <button class="primary-btn free-list-button" onclick="scrollToSignup()">Get Early Kickstarter Access</button>
+        <h2>Reserve VIP access before launch.</h2>
+        <p>Put down $1 now to unlock $50 off the planned MSRP when MistWake launches on Kickstarter.</p>
+        <a class="primary-btn reserve-link" href="https://buy.stripe.com/aFa7sLcA3aXC3IIfQidIA00" target="_blank" rel="noopener">Reserve for $1</a>
       </div>
     </section>
   </main>
@@ -215,8 +235,22 @@
     <a href="#top">Back to top</a>
   </footer>
 
-  <script src="script.js?v=15"></script>
+  <script src="script.js?v=16"></script>
   <script>
+    document.querySelectorAll('.reserve-link').forEach(function(link) {
+      link.addEventListener('click', function() {
+        if (typeof gtag === 'function') {
+          gtag('event', 'vip_reservation_click', { event_category: 'engagement', event_label: 'stripe_reserve_button' });
+        }
+        if (typeof fbq === 'function') {
+          fbq('track', 'InitiateCheckout');
+        }
+        if (window.ttq && typeof ttq.track === 'function') {
+          ttq.track('InitiateCheckout');
+        }
+      });
+    });
+
     document.querySelectorAll('.free-list-button, #waitlist-form button').forEach(function(button) {
       button.addEventListener('click', function() {
         if (typeof gtag === 'function') {
