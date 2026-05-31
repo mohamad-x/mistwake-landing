@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="MistWake prototype proof placeholder">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#101418"/><stop offset="1" stop-color="#1f1710"/></linearGradient></defs>
+  <rect width="1200" height="900" rx="30" fill="url(#bg)"/>
+  <rect x="38" y="38" width="1124" height="824" rx="28" fill="none" stroke="#ffb84d" stroke-opacity=".5" stroke-width="4" stroke-dasharray="18 14"/>
+  <text x="72" y="105" fill="#ffb84d" font-family="Arial" font-size="28" font-weight="700" letter-spacing="4">PROTOTYPE PROOF PLACEHOLDER</text>
+  <text x="72" y="165" fill="#f7f1e8" font-family="Arial" font-size="46" font-weight="800">Replace with real prototype collage</text>
+  <g fill="#20262d" stroke="#59616a" stroke-width="3">
+    <rect x="80" y="230" width="480" height="250" rx="18"/><rect x="640" y="230" width="480" height="250" rx="18"/>
+    <rect x="80" y="545" width="480" height="250" rx="18"/><rect x="640" y="545" width="480" height="250" rx="18"/>
+  </g>
+  <g fill="#f7f1e8" font-family="Arial" font-size="30" font-weight="700">
+    <text x="235" y="365">Front View</text><text x="775" y="365">Screen Close-up</text>
+    <text x="205" y="680">Nozzle / Top View</text><text x="760" y="680">Internal Layout</text>
+  </g>
+  <g fill="#ffb84d"><circle cx="160" cy="310" r="12"/><circle cx="720" cy="310" r="12"/><circle cx="160" cy="625" r="12"/><circle cx="720" cy="625" r="12"/></g>
+</svg>
