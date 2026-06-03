@@ -16,9 +16,9 @@
   <meta name="twitter:image" content="https://mistwake.online/assets/mistwake-hero-image.png?v=1" />
   <link rel="icon" type="image/png" href="assets/mistwake-logo.png.png" />
   <link rel="apple-touch-icon" href="assets/mistwake-logo.png.png" />
-  <link rel="stylesheet" href="styles.css?v=19" />
-  <link rel="stylesheet" href="visual.css?v=7" />
-  <link rel="stylesheet" href="landing-fixes.css?v=3" />
+  <link rel="stylesheet" href="styles.css?v=20" />
+  <link rel="stylesheet" href="visual.css?v=8" />
+  <link rel="stylesheet" href="landing-fixes.css?v=4" />
 
   <!-- GOOGLE ADS TAG — INSERT TAG ID BELOW -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QL64FNLP2R"></script>
@@ -32,7 +32,7 @@
   <!-- META PIXEL — INSERT PIXEL ID BELOW -->
   <script>
     !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    {if(f.fbq)return;n=fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
     if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
     n.queue=[];t=b.createElement(e);t.async=!0;
@@ -78,16 +78,16 @@
         <div class="hero-copy">
           <p class="eyebrow">Launching soon on Kickstarter</p>
           <h1>The World's First Alarm That Wakes You With Mist.</h1>
-          <p class="hero-subtitle">MistWake combines sound with a fine mist cue — a second sensory trigger that makes it harder to sleep through your alarm. Nothing else like it exists.</p>
-          <p class="hero-offer-callout">Expected retail: $139 — VIP backers pay $89 at launch. Reserve your spot for $1 today.</p>
+          <p class="hero-subtitle desktop-copy">MistWake combines sound with a fine mist cue — a second sensory trigger that makes it harder to sleep through your alarm. Nothing else like it exists.</p>
+          <p class="hero-subtitle mobile-copy">Sound first. Fine mist if sound is not enough. Built for heavy sleepers.</p>
+          <p class="hero-offer-callout">Reserve for $1 → VIP Kickstarter price $89 instead of $139.</p>
           <div class="hero-actions split-actions">
             <a class="primary-btn reserve-link" href="https://buy.stripe.com/aFa7sLcA3aXC3IIfQidIA00" target="_blank" rel="noopener">Reserve VIP Access for $1</a>
-            <a class="text-link free-list-button" href="#free-list-section">Join the free launch list</a>
+            <a class="text-link free-list-button" href="#free-list-section">Join Free List</a>
           </div>
           <div class="trust-row hero-trust-row" aria-label="MistWake credibility points">
             <span>Working prototype built</span>
-            <span>Sound + mist cue</span>
-            <span>$50 VIP launch discount</span>
+            <span>$89 VIP Kickstarter price</span>
             <span>Secure checkout by Stripe</span>
           </div>
           <p class="hero-urgency">Only 200 VIP spots available before Kickstarter launch.</p>
@@ -114,6 +114,7 @@
             <span>Internal reservoir, pump, and electronics layout built</span>
             <span>Next step: final design-for-manufacturing refinement</span>
           </div>
+          <a class="primary-btn reserve-link section-mobile-cta" href="https://buy.stripe.com/aFa7sLcA3aXC3IIfQidIA00" target="_blank" rel="noopener">Reserve for $1</a>
         </div>
       </div>
     </section>
@@ -333,6 +334,11 @@
     </section>
   </main>
 
+  <div class="mobile-sticky-cta" aria-label="Mobile reservation bar">
+    <span>$1 reserves VIP price</span>
+    <a class="reserve-link" href="https://buy.stripe.com/aFa7sLcA3aXC3IIfQidIA00" target="_blank" rel="noopener">Reserve</a>
+  </div>
+
   <footer>
     <div class="footer-brand">
       <img src="assets/mistwake-logo.png.png" alt="MistWake logo" />
@@ -341,7 +347,7 @@
     <a href="#top">Back to top</a>
   </footer>
 
-  <script src="script.js?v=19"></script>
+  <script src="script.js?v=20"></script>
   <script>
     function updateReservationCounter() {
       fetch('assets/vip-reservations.json?v=' + Date.now())
