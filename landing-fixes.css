@@ -69,6 +69,25 @@
   line-height: 1;
 }
 
+.funnel-section {
+  background:
+    radial-gradient(circle at top left, rgba(120, 213, 255, 0.08), transparent 36%),
+    rgba(255, 255, 255, 0.025);
+}
+
+.funnel-grid {
+  width: min(100%, 1040px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.funnel-grid .card {
+  min-height: 190px;
+  border-color: rgba(120, 213, 255, 0.18);
+}
+
 .safety-list-spaced {
   margin-top: 20px;
 }
@@ -136,7 +155,8 @@
 
   .offer-pricing,
   .roadmap-grid,
-  .spec-grid {
+  .spec-grid,
+  .funnel-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -149,11 +169,13 @@
 
   .offer-pricing,
   .roadmap-grid,
-  .spec-grid {
+  .spec-grid,
+  .funnel-grid {
     grid-template-columns: 1fr;
   }
 
-  .roadmap-grid .card {
+  .roadmap-grid .card,
+  .funnel-grid .card {
     min-height: auto;
   }
 }
