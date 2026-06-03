@@ -170,6 +170,14 @@ function handleGoogleFormLoad() {
     section.innerHTML = `<details class="faq-master"><summary><span class="eyebrow">FAQ</span><span class="faq-master-title">Quick answers before launch.</span><span class="faq-master-note">Tap to expand FAQs</span></summary><div class="faq-list accordion-list">${items.map(function(item) { return `<details class="faq-item card"><summary>${item.question}</summary><p>${item.answer}</p></details>`; }).join("")}</div></details>`;
   }
 
+  function loadSocialLinksScript() {
+    if (document.querySelector('script[src^="social-links.js"]')) return;
+    const socialScript = document.createElement("script");
+    socialScript.src = "social-links.js?v=1";
+    socialScript.defer = true;
+    document.body.appendChild(socialScript);
+  }
+
   function refineCopy() {
     const roadmapHeader = document.querySelector(".roadmap-section .section-header p:last-child");
     if (roadmapHeader) roadmapHeader.textContent = "Here is the current path from working prototype to Kickstarter launch, manufacturing refinement, production, and fulfillment.";
@@ -197,6 +205,7 @@ function handleGoogleFormLoad() {
     injectGifSection();
     refineCopy();
     makeFaqExpandable();
+    loadSocialLinksScript();
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
