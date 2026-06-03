@@ -49,43 +49,42 @@ function handleGoogleFormLoad() {
 
   if (submitButton) {
     submitButton.disabled = false;
-    submitButton.textContent = "Join the VIP List";
+    submitButton.textContent = "Join Free List";
   }
 
   waitlistSubmitted = false;
 }
 
-(function addProductDemoVideoSection() {
-  const PRODUCT_DEMO_VIDEO = [
-    "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"
-  ].join("");
+(function improveKickstarterPrelaunchPage() {
+  const gifCandidates = [
+    "assets/ProductHero.gif",
+    "assets/producthero.gif",
+    "assets/product-hero.gif",
+    "assets/Product-Hero.gif",
+    "assets/mistwake-demo.gif",
+    "assets/mistwake-product-demo.gif",
+    "assets/mistwake-product.gif",
+    "assets/hero.gif",
+    "assets/demo.gif",
+    "assets/MistWake.gif",
+    "assets/mistwake.gif"
+  ];
 
-  function injectStyles() {
-    if (document.getElementById("product-demo-video-styles")) return;
+  function addStyles() {
+    if (document.getElementById("kickstarter-prelaunch-updates")) return;
 
     const style = document.createElement("style");
-    style.id = "product-demo-video-styles";
+    style.id = "kickstarter-prelaunch-updates";
     style.textContent = `
-      .product-video-section {
+      .product-gif-section {
         padding-top: 28px;
         background: radial-gradient(circle at top left, rgba(120, 213, 255, 0.08), transparent 34%);
       }
 
-      .product-video-card {
+      .product-gif-card,
+      .campaign-readiness-card {
         width: min(100%, 1120px);
         margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1.05fr 0.95fr;
-        gap: 26px;
-        align-items: center;
-        padding: 24px;
         border-radius: 28px;
         border: 1px solid rgba(120, 213, 255, 0.22);
         background:
@@ -94,7 +93,15 @@ function handleGoogleFormLoad() {
         box-shadow: var(--shadow);
       }
 
-      .product-video-media {
+      .product-gif-card {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 26px;
+        align-items: center;
+        padding: 24px;
+      }
+
+      .product-gif-media {
         position: relative;
         overflow: hidden;
         border-radius: 24px;
@@ -102,7 +109,7 @@ function handleGoogleFormLoad() {
         background: rgba(0, 0, 0, 0.28);
       }
 
-      .product-demo-video {
+      .product-demo-gif {
         display: block;
         width: 100%;
         aspect-ratio: 3 / 2;
@@ -110,7 +117,7 @@ function handleGoogleFormLoad() {
         background: #05070b;
       }
 
-      .video-overlay-badge {
+      .gif-overlay-badge {
         position: absolute;
         left: 16px;
         bottom: 16px;
@@ -119,7 +126,7 @@ function handleGoogleFormLoad() {
         gap: 10px;
         padding: 10px 14px;
         border-radius: 999px;
-        background: rgba(8, 11, 16, 0.8);
+        background: rgba(8, 11, 16, 0.82);
         border: 1px solid rgba(255, 255, 255, 0.16);
         color: var(--text);
         font-size: 0.9rem;
@@ -127,76 +134,116 @@ function handleGoogleFormLoad() {
         backdrop-filter: blur(12px);
       }
 
-      .product-video-copy {
+      .product-gif-copy {
         padding: 16px;
       }
 
-      .product-video-copy h2 {
+      .product-gif-copy h2,
+      .campaign-readiness-copy h2 {
         font-size: clamp(2rem, 4vw, 3.4rem);
         line-height: 1;
         letter-spacing: -1.5px;
         margin-bottom: 14px;
       }
 
-      .product-video-copy p {
+      .product-gif-copy p,
+      .campaign-readiness-copy p,
+      .readiness-card p {
         color: var(--muted);
-        max-width: 620px;
       }
 
-      .video-proof-points {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
+      .gif-proof-points,
+      .readiness-grid {
+        display: grid;
+        gap: 12px;
+      }
+
+      .gif-proof-points {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         margin: 20px 0 22px;
       }
 
-      .video-proof-points span {
-        display: inline-flex;
-        align-items: center;
-        border-radius: 999px;
-        padding: 9px 13px;
+      .gif-proof-points span,
+      .readiness-card {
+        border-radius: 18px;
         background: rgba(255, 255, 255, 0.075);
         border: 1px solid rgba(255, 255, 255, 0.11);
+      }
+
+      .gif-proof-points span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        min-height: 48px;
+        padding: 9px 13px;
         color: rgba(247, 241, 232, 0.86);
         font-size: 0.88rem;
         font-weight: 800;
       }
 
+      .campaign-readiness-card {
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 24px;
+        align-items: center;
+        padding: 30px;
+      }
+
+      .readiness-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .readiness-card {
+        padding: 20px;
+      }
+
+      .readiness-card strong {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--amber);
+        font-size: 1.03rem;
+      }
+
+      .readiness-note {
+        margin-top: 16px;
+        padding: 14px 16px;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 184, 77, 0.22);
+        background: rgba(255, 184, 77, 0.08);
+        color: rgba(247, 241, 232, 0.82) !important;
+        font-size: 0.94rem;
+      }
+
       @media (max-width: 1050px) {
-        .product-video-card {
+        .product-gif-card,
+        .campaign-readiness-card {
           grid-template-columns: 1fr;
         }
 
-        .product-video-copy {
+        .product-gif-copy,
+        .campaign-readiness-copy {
           text-align: center;
-        }
-
-        .product-video-copy p {
-          margin-left: auto;
-          margin-right: auto;
-        }
-
-        .video-proof-points {
-          justify-content: center;
         }
       }
 
       @media (max-width: 700px) {
-        .product-video-section {
+        .product-gif-section {
           padding-top: 20px;
         }
 
-        .product-video-card {
+        .product-gif-card,
+        .campaign-readiness-card {
           padding: 16px;
           border-radius: 20px;
           gap: 18px;
         }
 
-        .product-video-media {
+        .product-gif-media {
           border-radius: 18px;
         }
 
-        .video-overlay-badge {
+        .gif-overlay-badge {
           left: 10px;
           right: 10px;
           bottom: 10px;
@@ -204,13 +251,14 @@ function handleGoogleFormLoad() {
           font-size: 0.8rem;
         }
 
-        .product-video-copy {
+        .product-gif-copy,
+        .campaign-readiness-copy {
           padding: 4px 2px 2px;
         }
 
-        .video-proof-points span {
-          width: 100%;
-          justify-content: center;
+        .gif-proof-points,
+        .readiness-grid {
+          grid-template-columns: 1fr;
         }
       }
     `;
@@ -233,34 +281,43 @@ function handleGoogleFormLoad() {
     }
   }
 
-  function injectDemoSection() {
+  function resolveGifSource(img, index = 0) {
+    if (!img || index >= gifCandidates.length) {
+      if (img) {
+        img.src = "assets/mistwake-hero-image.png?v=1";
+        img.alt = "MistWake alarm clock preview image";
+      }
+      return;
+    }
+
+    img.onerror = function () {
+      resolveGifSource(img, index + 1);
+    };
+    img.src = gifCandidates[index];
+  }
+
+  function injectGifSection() {
     const heroSection = document.querySelector(".hero-section");
     if (!heroSection || document.getElementById("demo")) return;
 
-    injectStyles();
-    addDemoNavLink();
-
     const section = document.createElement("section");
-    section.className = "section product-video-section";
+    section.className = "section product-gif-section";
     section.id = "demo";
-    section.setAttribute("aria-label", "MistWake product video demo");
+    section.setAttribute("aria-label", "MistWake product GIF demo");
     section.innerHTML = `
-      <div class="product-video-card">
-        <div class="product-video-media">
-          <video class="product-demo-video" autoplay muted loop playsinline preload="metadata" poster="assets/mistwake-hero-image.png?v=1" aria-label="Short MistWake product preview video">
-            <source src="data:video/mp4;base64,${PRODUCT_DEMO_VIDEO}" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          <div class="video-overlay-badge"><span class="pulse-dot"></span>Watch the mist cue in action</div>
+      <div class="product-gif-card">
+        <div class="product-gif-media">
+          <img class="product-demo-gif" data-gif-demo="true" src="assets/mistwake-hero-image.png?v=1" alt="MistWake product demo showing the mist wake-up cue" loading="eager" decoding="async" />
+          <div class="gif-overlay-badge"><span class="pulse-dot"></span>See the mist cue in action</div>
         </div>
-        <div class="product-video-copy">
+        <div class="product-gif-copy">
           <p class="eyebrow">See it in action</p>
-          <h2>See the physical wake-up cue in 5 seconds.</h2>
-          <p>A quick visual preview makes the product instantly understandable on mobile: the bedside alarm, touchscreen-style interface, and mist cue working together.</p>
-          <div class="video-proof-points" aria-label="MistWake video highlights">
-            <span>Sound + fine mist</span>
-            <span>Muted autoplay</span>
-            <span>Built for heavy sleepers</span>
+          <h2>The idea is simple: sound first, mist when sound is not enough.</h2>
+          <p>A short GIF is smoother than a video for mobile ad traffic. It quickly shows what makes MistWake different without forcing visitors to tap play or wait for a heavy video load.</p>
+          <div class="gif-proof-points" aria-label="MistWake demo highlights">
+            <span>Instant visual explanation</span>
+            <span>Mobile-first preview</span>
+            <span>No sound required</span>
           </div>
           <a class="primary-btn reserve-link section-mobile-cta" href="https://buy.stripe.com/aFa7sLcA3aXC3IIfQidIA00" target="_blank" rel="noopener">Reserve for $1</a>
         </div>
@@ -268,11 +325,76 @@ function handleGoogleFormLoad() {
     `;
 
     heroSection.insertAdjacentElement("afterend", section);
+    resolveGifSource(section.querySelector('[data-gif-demo="true"]'));
+  }
+
+  function injectCampaignReadinessSection() {
+    const roadmapSection = document.querySelector(".roadmap-section");
+    if (!roadmapSection || document.getElementById("campaign-readiness")) return;
+
+    const section = document.createElement("section");
+    section.className = "section campaign-readiness-section";
+    section.id = "campaign-readiness";
+    section.innerHTML = `
+      <div class="campaign-readiness-card">
+        <div class="campaign-readiness-copy">
+          <p class="eyebrow">Campaign readiness</p>
+          <h2>Backers need proof, clarity, and realistic expectations.</h2>
+          <p>MistWake should not look like a random gadget preorder. The page now emphasizes the working prototype, the launch plan, what the $1 reservation actually means, and what still needs to be finished before fulfillment.</p>
+          <p class="readiness-note">Kickstarter backers are supporting a project, not buying from a finished retail store. That distinction should stay visible before launch.</p>
+        </div>
+        <div class="readiness-grid">
+          <article class="readiness-card"><strong>Prototype proof</strong><p>Show the product working before asking for money.</p></article>
+          <article class="readiness-card"><strong>Clear reward logic</strong><p>$1 reserves VIP access; Kickstarter pledge still comes later.</p></article>
+          <article class="readiness-card"><strong>Manufacturing honesty</strong><p>Explain final enclosure, sourcing, testing, and fulfillment work.</p></article>
+        </div>
+      </div>
+    `;
+
+    roadmapSection.insertAdjacentElement("afterend", section);
+  }
+
+  function addKickstarterSpecificFaqs() {
+    const faqList = document.querySelector(".faq-list");
+    if (!faqList || faqList.querySelector('[data-added-faq="kickstarter-project"]')) return;
+
+    const projectFaq = document.createElement("article");
+    projectFaq.className = "card";
+    projectFaq.setAttribute("data-added-faq", "kickstarter-project");
+    projectFaq.innerHTML = `<h3>Is this a finished retail product?</h3><p>No. MistWake is preparing for Kickstarter. The prototype proves the core concept, but the final product still needs manufacturing refinement, supplier coordination, testing, packaging, and fulfillment planning.</p>`;
+
+    const reservationFaq = document.createElement("article");
+    reservationFaq.className = "card";
+    reservationFaq.innerHTML = `<h3>Why show the prototype and roadmap before launch?</h3><p>Backers need to understand what already works, what still has to be built, and what risks exist before they support the campaign. That transparency increases trust and reduces confusion.</p>`;
+
+    faqList.insertBefore(projectFaq, faqList.firstChild);
+    faqList.insertBefore(reservationFaq, projectFaq.nextSibling);
+  }
+
+  function refineCopy() {
+    const founderText = document.querySelector(".founder-card p:last-child");
+    if (founderText) {
+      founderText.textContent = "I built MistWake because sound-only alarms failed me at the exact moments when waking up mattered. The point is not to scare people awake. The point is to add a second physical cue when sound alone is not enough.";
+    }
+
+    const roadmapHeader = document.querySelector(".roadmap-section .section-header p:last-child");
+    if (roadmapHeader) {
+      roadmapHeader.textContent = "Kickstarter backers need to see the path from working prototype to production. This is the current execution plan before final dates and reward details are locked.";
+    }
+  }
+
+  function init() {
+    addStyles();
+    addDemoNavLink();
+    injectGifSection();
+    injectCampaignReadinessSection();
+    addKickstarterSpecificFaqs();
+    refineCopy();
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", injectDemoSection);
+    document.addEventListener("DOMContentLoaded", init);
   } else {
-    injectDemoSection();
+    init();
   }
 })();
