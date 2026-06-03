@@ -1,0 +1,67 @@
+.hero-social-proof {
+  margin-top: 10px;
+  color: rgba(247, 241, 232, 0.62);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.offer-box-urgency {
+  margin: 10px 0 8px !important;
+  color: var(--amber) !important;
+  font-size: 0.92rem;
+  font-weight: 900;
+}
+
+.founder-section {
+  padding-top: 42px;
+  padding-bottom: 42px;
+}
+
+.founder-card {
+  width: min(100%, 920px);
+  margin: 0 auto;
+  padding: 34px;
+  border-radius: 26px;
+  border: 1px solid rgba(255, 184, 77, 0.22);
+  background: linear-gradient(135deg, rgba(255, 184, 77, 0.1), rgba(120, 213, 255, 0.05)), var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.founder-card h2 {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: -1.5px;
+  margin-bottom: 14px;
+}
+
+.founder-card p:last-child {
+  max-width: 740px;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.offer-box small + small {
+  margin-top: 6px;
+}
+
+@media (max-width: 1050px) {
+  .hero-social-proof {
+    text-align: center;
+  }
+
+  .founder-card {
+    text-align: center;
+  }
+
+  .founder-card p:last-child {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .founder-card {
+    padding: 22px 18px;
+    border-radius: 20px;
+  }
+}
