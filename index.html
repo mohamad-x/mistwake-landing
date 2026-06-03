@@ -19,6 +19,11 @@
   <link rel="stylesheet" href="styles.css?v=21" />
   <link rel="stylesheet" href="visual.css?v=8" />
   <link rel="stylesheet" href="landing-fixes.css?v=5" />
+  <style>
+    .kickstarter-green {
+      color: #05ce78 !important;
+    }
+  </style>
 
   <!-- GOOGLE ADS TAG — INSERT TAG ID BELOW -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QL64FNLP2R"></script>
@@ -351,6 +356,38 @@
 
   <script src="script.js?v=21"></script>
   <script>
+    function colorKickstarterWord() {
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+        acceptNode: function(node) {
+          if (!node.nodeValue || !node.nodeValue.includes('Kickstarter')) return NodeFilter.FILTER_REJECT;
+          const parent = node.parentNode;
+          if (!parent || ['SCRIPT', 'STYLE', 'NOSCRIPT'].includes(parent.nodeName)) return NodeFilter.FILTER_REJECT;
+          if (parent.classList && parent.classList.contains('kickstarter-green')) return NodeFilter.FILTER_REJECT;
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      });
+
+      const nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+
+      nodes.forEach(function(node) {
+        const fragment = document.createDocumentFragment();
+        const parts = node.nodeValue.split('Kickstarter');
+        parts.forEach(function(part, index) {
+          if (part) fragment.appendChild(document.createTextNode(part));
+          if (index < parts.length - 1) {
+            const span = document.createElement('span');
+            span.className = 'kickstarter-green';
+            span.textContent = 'Kickstarter';
+            fragment.appendChild(span);
+          }
+        });
+        node.parentNode.replaceChild(fragment, node);
+      });
+    }
+
+    colorKickstarterWord();
+
     document.querySelectorAll('.reserve-link').forEach(function(link) {
       link.addEventListener('click', function() {
         if (typeof gtag === 'function') {
