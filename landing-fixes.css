@@ -5,6 +5,10 @@
   font-weight: 700;
 }
 
+.hero-trust-row {
+  max-width: 720px;
+}
+
 .offer-box-urgency {
   margin: 10px 0 8px !important;
   color: var(--amber) !important;
@@ -40,12 +44,79 @@
   font-size: 1.05rem;
 }
 
+.offer-pricing {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 22px 0 6px;
+}
+
+.offer-pricing span {
+  display: grid;
+  gap: 4px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  color: rgba(247, 241, 232, 0.78);
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.offer-pricing strong {
+  color: var(--amber);
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.safety-list-spaced {
+  margin-top: 20px;
+}
+
+.spec-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.box-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.box-list li {
+  padding: 13px 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.075);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  color: rgba(247, 241, 232, 0.86);
+  font-weight: 800;
+}
+
+.roadmap-section {
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.roadmap-grid {
+  width: min(100%, 1040px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.roadmap-grid .card {
+  min-height: 210px;
+}
+
 .offer-box small + small {
   margin-top: 6px;
 }
 
 @media (max-width: 1050px) {
-  .hero-social-proof {
+  .hero-social-proof,
+  .hero-urgency {
     text-align: center;
   }
 
@@ -57,11 +128,32 @@
     margin-left: auto;
     margin-right: auto;
   }
+
+  .hero-trust-row {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .offer-pricing,
+  .roadmap-grid,
+  .spec-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 700px) {
   .founder-card {
     padding: 22px 18px;
     border-radius: 20px;
+  }
+
+  .offer-pricing,
+  .roadmap-grid,
+  .spec-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .roadmap-grid .card {
+    min-height: auto;
   }
 }
