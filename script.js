@@ -6,6 +6,12 @@ function scrollToSignup() {
   signup.scrollIntoView({ behavior: "smooth" });
 }
 
+function scrollToSection(id) {
+  const section = document.getElementById(id);
+  if (!section) return;
+  section.scrollIntoView({ behavior: "smooth" });
+}
+
 function handleWaitlistSubmit() {
   const message = document.getElementById("form-message");
   const submitButton = document.querySelector(".waitlist-inline-form button");
@@ -47,23 +53,28 @@ function handleGoogleFormLoad() {
   waitlistSubmitted = false;
 }
 
-(function improveMistWakePage() {
+(function cleanMistWakeLandingPage() {
+  const gifCandidates = [
+    "assets/ProductHero.gif",
+    "assets/producthero.gif",
+    "assets/product-hero.gif",
+    "assets/mistwake-demo.gif",
+    "assets/mistwake-product-demo.gif",
+    "assets/hero.gif",
+    "assets/demo.gif"
+  ];
+
   function addStyles() {
-    if (document.getElementById("mistwake-page-updates")) return;
+    if (document.getElementById("mistwake-clean-landing-styles")) return;
 
     const style = document.createElement("style");
-    style.id = "mistwake-page-updates";
+    style.id = "mistwake-clean-landing-styles";
     style.textContent = `
       .kickstarter-green { color: #05ce78 !important; display: inline !important; padding: 0 !important; margin: 0 !important; border: 0 !important; background: transparent !important; box-shadow: none !important; border-radius: 0 !important; font-family: "Maison Neue", "Helvetica Neue", Helvetica, Arial, sans-serif !important; }
-      .hero-video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; background: #05070b; }
-      .hero-video.is-missing { display: none !important; }
-      .hero-image-fallback { display: none !important; }
-      .hero-video.is-missing + .hero-image-fallback { display: block !important; }
       .demo-overlay, .gif-overlay-badge { display: none !important; }
-      .founder-section, .problem-section, .funnel-section, .roadmap-section { display: none !important; }
-      .compact-hero .hero-copy h1 { max-width: 760px; }
+      .founder-section, .problem-section, .funnel-section, .roadmap-section, .why-section, #demo { display: none !important; }
+      .hero-visual img { display: block !important; width: 100% !important; height: auto !important; aspect-ratio: 16 / 9; object-fit: cover; }
       .compact-badges { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-      .compact-how-grid .how-card p { min-height: 0; }
       .faq-master { width: min(100%, 920px); margin: 0 auto; border-radius: 28px; border: 1px solid var(--border); background: var(--panel); box-shadow: var(--shadow); overflow: hidden; }
       .faq-master > summary { list-style: none; cursor: pointer; padding: 26px; text-align: center; }
       .faq-master > summary::-webkit-details-marker, .faq-item > summary::-webkit-details-marker { display: none; }
@@ -78,15 +89,14 @@ function handleGoogleFormLoad() {
       @media (max-width: 700px) {
         .hero-shell { display: flex !important; flex-direction: column !important; gap: 16px !important; }
         .hero-visual { order: -1 !important; margin-top: 4px !important; border-radius: 18px !important; }
-        .hero-copy h1 { font-size: clamp(2.05rem, 10vw, 3.25rem) !important; line-height: 0.98 !important; letter-spacing: -1.3px !important; }
         .hero-section { padding-top: 16px !important; padding-bottom: 18px !important; }
+        .hero-copy h1 { font-size: clamp(2.05rem, 10vw, 3.25rem) !important; line-height: 0.98 !important; letter-spacing: -1.3px !important; }
         .hero-subtitle { margin-top: 12px !important; font-size: 0.98rem !important; }
         .hero-offer-callout { font-size: 0.96rem !important; margin-top: 12px !important; }
         .trust-row span:nth-child(n+3) { display: none !important; }
         .hero-urgency { display: none !important; }
         .compact-badges { grid-template-columns: 1fr !important; }
         .section { padding-top: 34px !important; padding-bottom: 34px !important; }
-        .offer-card, .visual-proof-grid, .visual-split { gap: 18px !important; }
       }
     `;
     document.head.appendChild(style);
@@ -122,46 +132,47 @@ function handleGoogleFormLoad() {
     });
   }
 
-  function addHeroVideo() {
+  function restoreHeroGif() {
     const visual = document.querySelector(".hero-visual");
     if (!visual) return;
 
-    visual.querySelectorAll(".demo-overlay, .gif-overlay-badge").forEach(function(el) { el.remove(); });
+    visual.querySelectorAll("video, .demo-overlay, .gif-overlay-badge").forEach(function(el) { el.remove(); });
 
-    if (visual.querySelector("video")) {
-      const existingImage = visual.querySelector("img");
-      if (existingImage) existingImage.classList.add("hero-image-fallback");
+    let image = visual.querySelector("img");
+    if (!image) {
+      image = document.createElement("img");
+      image.className = "asset-placeholder-img";
+      image.alt = "MistWake alarm clock on a nightstand";
+      visual.appendChild(image);
+    }
+
+    image.classList.remove("hero-image-fallback");
+    image.alt = "MistWake alarm clock on a nightstand";
+    resolveGifSource(image, 0);
+  }
+
+  function resolveGifSource(image, index) {
+    if (!image) return;
+    if (index >= gifCandidates.length) {
+      image.onerror = null;
+      image.src = "assets/mistwake-hero-image.png?v=1";
       return;
     }
-
-    const currentImage = visual.querySelector("img");
-    const video = document.createElement("video");
-    video.className = "hero-video";
-    video.autoplay = true;
-    video.muted = true;
-    video.loop = true;
-    video.playsInline = true;
-    video.preload = "metadata";
-    video.poster = "assets/mistwake-hero-image.png?v=1";
-    video.innerHTML = '<source src="assets/ProductHero.mp4" type="video/mp4">';
-    video.addEventListener("error", function() { video.classList.add("is-missing"); });
-
-    if (currentImage) {
-      currentImage.classList.add("hero-image-fallback");
-      visual.insertBefore(video, currentImage);
-    }
+    image.onerror = function() { resolveGifSource(image, index + 1); };
+    image.src = gifCandidates[index];
   }
 
-  function removeInjectedDuplicateDemo() {
+  function removeBadAndLongSections() {
     document.getElementById("demo")?.remove();
-    document.querySelectorAll(".demo-overlay, .gif-overlay-badge").forEach(function(el) { el.remove(); });
-    const demoNav = document.querySelector('.nav-links a[href="#demo"]');
-    if (demoNav) demoNav.remove();
+    document.querySelector(".founder-section")?.remove();
+    document.querySelector(".problem-section")?.remove();
+    document.querySelector(".funnel-section")?.remove();
+    document.querySelector(".roadmap-section")?.remove();
+    document.querySelector(".why-section")?.remove();
   }
 
-  function simplifyLongCopy() {
-    const proofBadges = document.querySelectorAll(".proof-badges span");
-    proofBadges.forEach(function(item, index) {
+  function simplifyProofBadges() {
+    document.querySelectorAll(".proof-badges span").forEach(function(item, index) {
       if (index > 2) item.remove();
     });
   }
@@ -191,9 +202,9 @@ function handleGoogleFormLoad() {
 
   function init() {
     addStyles();
-    removeInjectedDuplicateDemo();
-    addHeroVideo();
-    simplifyLongCopy();
+    removeBadAndLongSections();
+    restoreHeroGif();
+    simplifyProofBadges();
     makeFaqExpandable();
     greenKickstarterWords();
     loadSocialLinksScript();
