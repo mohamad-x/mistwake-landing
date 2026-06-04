@@ -47,17 +47,20 @@ function handleGoogleFormLoad() {
   waitlistSubmitted = false;
 }
 
-(function simplifyMistWakeLandingPage() {
-  function addMobileFirstStyles() {
-    if (document.getElementById("mistwake-simple-mobile-styles")) return;
+(function improveMistWakePage() {
+  function addStyles() {
+    if (document.getElementById("mistwake-page-updates")) return;
+
     const style = document.createElement("style");
-    style.id = "mistwake-simple-mobile-styles";
+    style.id = "mistwake-page-updates";
     style.textContent = `
       .kickstarter-green { color: #05ce78 !important; display: inline !important; padding: 0 !important; margin: 0 !important; border: 0 !important; background: transparent !important; box-shadow: none !important; border-radius: 0 !important; font-family: "Maison Neue", "Helvetica Neue", Helvetica, Arial, sans-serif !important; }
       .hero-video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; background: #05070b; }
-      .hero-video.is-missing { display: none; }
-      .hero-image-fallback { display: none; }
-      .hero-video.is-missing + .hero-image-fallback { display: block; }
+      .hero-video.is-missing { display: none !important; }
+      .hero-image-fallback { display: none !important; }
+      .hero-video.is-missing + .hero-image-fallback { display: block !important; }
+      .demo-overlay, .gif-overlay-badge { display: none !important; }
+      .founder-section, .problem-section, .funnel-section, .roadmap-section { display: none !important; }
       .compact-hero .hero-copy h1 { max-width: 760px; }
       .compact-badges { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
       .compact-how-grid .how-card p { min-height: 0; }
@@ -81,7 +84,6 @@ function handleGoogleFormLoad() {
         .hero-offer-callout { font-size: 0.96rem !important; margin-top: 12px !important; }
         .trust-row span:nth-child(n+3) { display: none !important; }
         .hero-urgency { display: none !important; }
-        .demo-overlay { font-size: 0.78rem !important; left: 10px !important; right: 10px !important; justify-content: center !important; }
         .compact-badges { grid-template-columns: 1fr !important; }
         .section { padding-top: 34px !important; padding-bottom: 34px !important; }
         .offer-card, .visual-proof-grid, .visual-split { gap: 18px !important; }
@@ -100,11 +102,13 @@ function handleGoogleFormLoad() {
         return NodeFilter.FILTER_ACCEPT;
       }
     });
+
     const nodes = [];
     while (walker.nextNode()) nodes.push(walker.currentNode);
+
     nodes.forEach(function(node) {
-      const parts = node.nodeValue.split("Kickstarter");
       const fragment = document.createDocumentFragment();
+      const parts = node.nodeValue.split("Kickstarter");
       parts.forEach(function(part, index) {
         if (part) fragment.appendChild(document.createTextNode(part));
         if (index < parts.length - 1) {
@@ -120,7 +124,16 @@ function handleGoogleFormLoad() {
 
   function addHeroVideo() {
     const visual = document.querySelector(".hero-visual");
-    if (!visual || visual.querySelector("video")) return;
+    if (!visual) return;
+
+    visual.querySelectorAll(".demo-overlay, .gif-overlay-badge").forEach(function(el) { el.remove(); });
+
+    if (visual.querySelector("video")) {
+      const existingImage = visual.querySelector("img");
+      if (existingImage) existingImage.classList.add("hero-image-fallback");
+      return;
+    }
+
     const currentImage = visual.querySelector("img");
     const video = document.createElement("video");
     video.className = "hero-video";
@@ -132,47 +145,40 @@ function handleGoogleFormLoad() {
     video.poster = "assets/mistwake-hero-image.png?v=1";
     video.innerHTML = '<source src="assets/ProductHero.mp4" type="video/mp4">';
     video.addEventListener("error", function() { video.classList.add("is-missing"); });
+
     if (currentImage) {
       currentImage.classList.add("hero-image-fallback");
       visual.insertBefore(video, currentImage);
     }
   }
 
-  function removeLongSections() {
-    document.querySelector(".founder-section")?.remove();
-    document.querySelector(".problem-section")?.remove();
-    document.querySelector(".funnel-section")?.remove();
-    document.querySelector(".roadmap-section")?.remove();
-    const visualSections = document.querySelectorAll(".visual-section");
-    visualSections.forEach(function(section) { section.remove(); });
+  function removeInjectedDuplicateDemo() {
+    document.getElementById("demo")?.remove();
+    document.querySelectorAll(".demo-overlay, .gif-overlay-badge").forEach(function(el) { el.remove(); });
+    const demoNav = document.querySelector('.nav-links a[href="#demo"]');
+    if (demoNav) demoNav.remove();
   }
 
-  function simplifyCopy() {
-    const heroTitle = document.querySelector(".hero-copy h1");
-    if (heroTitle) heroTitle.textContent = "The World's First Alarm That Wakes You With Mist.";
-    const desktopSubtitle = document.querySelector(".hero-subtitle.desktop-copy") || document.querySelector(".hero-subtitle");
-    if (desktopSubtitle) desktopSubtitle.textContent = "MistWake combines sound with a controlled fine mist cue — a second sensory trigger that makes it harder to sleep through your alarm.";
-    const mobileSubtitle = document.querySelector(".hero-subtitle.mobile-copy");
-    if (mobileSubtitle) mobileSubtitle.textContent = "Sound first. Fine mist if sound is not enough.";
-    const offer = document.querySelector(".hero-offer-callout");
-    if (offer) offer.innerHTML = 'Reserve for $1 → VIP <span class="kickstarter-green">Kickstarter</span> price $89 instead of $139 MSRP.';
-    const proofTitle = document.querySelector(".short-proof-card h2");
-    if (proofTitle) proofTitle.textContent = "The first of its kind. And it's already built.";
-    const proofBody = document.querySelector(".short-proof-card p:not(.eyebrow)");
-    if (proofBody) proofBody.textContent = "No other bedside alarm does this. MistWake is the first alarm clock to combine sound with a controlled mist cue — and a working prototype already exists.";
+  function simplifyLongCopy() {
+    const proofBadges = document.querySelectorAll(".proof-badges span");
+    proofBadges.forEach(function(item, index) {
+      if (index > 2) item.remove();
+    });
   }
 
   function makeFaqExpandable() {
     const section = document.querySelector(".faq-section");
     const faqList = section?.querySelector(".faq-list");
     if (!section || !faqList || section.querySelector(".faq-master")) return;
+
     const items = [];
     faqList.querySelectorAll("article.card").forEach(function(card) {
       const question = card.querySelector("h3")?.textContent?.trim();
       const answer = card.querySelector("p")?.textContent?.trim();
       if (question && answer) items.push({ question, answer });
     });
-    section.innerHTML = `<details class="faq-master"><summary><span class="eyebrow">FAQ</span><span class="faq-master-title">Quick answers.</span><span class="faq-master-note">Tap to expand</span></summary><div class="faq-list accordion-list">${items.slice(0, 5).map(function(item) { return `<details class="faq-item card"><summary>${item.question}</summary><p>${item.answer}</p></details>`; }).join("")}</div></details>`;
+
+    section.innerHTML = `<details class="faq-master"><summary><span class="eyebrow">FAQ</span><span class="faq-master-title">Quick answers.</span><span class="faq-master-note">Tap to expand</span></summary><div class="faq-list accordion-list">${items.slice(0, 6).map(function(item) { return `<details class="faq-item card"><summary>${item.question}</summary><p>${item.answer}</p></details>`; }).join("")}</div></details>`;
   }
 
   function loadSocialLinksScript() {
@@ -184,10 +190,10 @@ function handleGoogleFormLoad() {
   }
 
   function init() {
-    addMobileFirstStyles();
+    addStyles();
+    removeInjectedDuplicateDemo();
     addHeroVideo();
-    removeLongSections();
-    simplifyCopy();
+    simplifyLongCopy();
     makeFaqExpandable();
     greenKickstarterWords();
     loadSocialLinksScript();
