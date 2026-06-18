@@ -375,3 +375,63 @@
     padding-bottom: 88px;
   }
 }
+
+/* Closeup grid: real-photo evidence for nozzle + dimensions claims */
+.closeup-grid {
+  width: min(100%, 1120px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.closeup-grid figure {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: var(--shadow);
+}
+
+.closeup-grid figcaption {
+  padding: 14px 16px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+@media (max-width: 700px) {
+  .closeup-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* VIP reservation progress bar — pulls real counts from assets/vip-reservations.json */
+.vip-progress {
+  width: 100%;
+  margin: 6px 0 2px;
+}
+
+.vip-progress-track {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.vip-progress-fill {
+  height: 100%;
+  width: 2%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--amber), var(--amber-dark));
+  transition: width 0.6s ease;
+}
+
+.vip-progress small {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-weight: 700;
+}

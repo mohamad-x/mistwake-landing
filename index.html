@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MistWake | The World's First Mist Alarm Clock</title>
-  <meta name="description" content="MistWake combines sound with a controlled fine mist cue to help heavy sleepers wake up. Reserve VIP Kickstarter access for $1." />
-  <meta property="og:title" content="MistWake — The World's First Alarm That Wakes You With Mist" />
-  <meta property="og:description" content="Sound first. Gentle mist if sound is not enough." />
+  <title>MistWake | A Sound + Mist Alarm Clock for Heavy Sleepers</title>
+  <meta name="description" content="MistWake pairs your alarm sound with a controlled, aimed mist cue when sound alone isn't waking you. Reserve VIP Kickstarter access for $1." />
+  <meta property="og:title" content="MistWake — Wakes You With Sound, Then a Controlled Mist Cue" />
+  <meta property="og:description" content="Sound first. A controlled, aimed mist cue if sound alone isn't enough." />
   <meta property="og:image" content="https://mistwake.online/assets/kickstarter-hero.webp" />
   <meta property="og:url" content="https://mistwake.online/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="MistWake — The World's First Mist Alarm Clock" />
+  <meta name="twitter:title" content="MistWake — A Sound + Mist Alarm Clock for Heavy Sleepers" />
   <meta name="twitter:description" content="Reserve VIP access for $1 and get the planned $89 VIP Kickstarter price at launch." />
   <meta name="twitter:image" content="https://mistwake.online/assets/kickstarter-hero.webp" />
   <link rel="icon" type="image/png" href="assets/mistwake-logo.png.png" />
   <link rel="apple-touch-icon" href="assets/mistwake-logo.png.png" />
   <link rel="preload" as="image" href="assets/kickstarter-hero.webp" />
-  <link rel="stylesheet" href="styles.css?v=40" />
-  <link rel="stylesheet" href="visual.css?v=40" />
-  <link rel="stylesheet" href="landing-fixes.css?v=40" />
+  <link rel="stylesheet" href="styles.css?v=41" />
+  <link rel="stylesheet" href="visual.css?v=41" />
+  <link rel="stylesheet" href="landing-fixes.css?v=41" />
 </head>
 <body>
   <header class="navbar">
@@ -45,10 +45,10 @@
         </div>
         <div class="hero-copy">
           <p class="eyebrow">Launching soon on <span class="kickstarter-green">Kickstarter</span></p>
-          <h1>The World's First Alarm That Wakes You With Mist.</h1>
-          <p class="hero-subtitle desktop-copy">MistWake combines sound with a controlled fine mist cue — a second sensory trigger that makes it harder to sleep through your alarm.</p>
-          <p class="hero-subtitle mobile-copy">Sound first. Fine mist if sound is not enough.</p>
-          <p class="hero-offer-callout">Reserve for $1 → VIP <span class="kickstarter-green">Kickstarter</span> price $89 instead of $139 MSRP.</p>
+          <h1>Wakes You With Sound. Mists You If That's Not Enough.</h1>
+          <p class="hero-subtitle desktop-copy">MistWake pairs your alarm sound with a controlled, aimed mist cue — a second sensory trigger designed to make it harder to sleep through your alarm.</p>
+          <p class="hero-subtitle mobile-copy">Sound first. A controlled mist cue if sound alone isn't enough.</p>
+          <p class="hero-offer-callout">Reserve for $1 → planned $89 VIP <span class="kickstarter-green">Kickstarter</span> price instead of the expected $139 MSRP.</p>
           <div class="hero-actions split-actions">
             <a class="primary-btn reserve-link" href="https://buy.stripe.com/aFa7sLcA3aXC3IIfQidIA00" target="_blank" rel="noopener">Reserve VIP Access for $1</a>
             <a class="text-link free-list-button" href="#free-list-section">Join Free List</a>
@@ -71,12 +71,12 @@
     <section class="section visual-proof-section" id="proof">
       <div class="visual-proof-grid">
         <div class="visual-proof-image" aria-label="MistWake prototype demo">
-          <img class="asset-placeholder-img" src="assets/prototype-demo.gif?v=40" alt="MistWake working prototype demo" />
+          <img class="asset-placeholder-img" src="assets/mistwake-prototype-proof-image.png?v=41" alt="MistWake prototype: front view, screen close-up, nozzle/top view, and internal layout" />
         </div>
         <div class="short-proof-card">
           <p class="eyebrow">Prototype proof</p>
-          <h2>The first of its kind. And it's already built.</h2>
-          <p>No other bedside alarm does this. MistWake is the first alarm clock to combine sound with a controlled mist cue — and a working prototype already exists.</p>
+          <h2>Not your average alarm. And it's already built.</h2>
+          <p>Most bedside alarms rely on sound alone. MistWake adds a second, controlled mist cue when sound alone isn't waking you — and a working prototype already exists.</p>
           <div class="proof-badges compact-badges">
             <span>Works-like prototype built</span>
             <span>3.5-inch touchscreen tested</span>
@@ -99,8 +99,12 @@
           <strong>$1</strong>
           <p>$89 VIP price at launch</p>
           <a class="primary-btn reserve-link" href="https://buy.stripe.com/aFa7sLcA3aXC3IIfQidIA00" target="_blank" rel="noopener">Reserve VIP Access</a>
+          <div class="vip-progress" id="vip-progress" aria-live="polite">
+            <div class="vip-progress-track"><div class="vip-progress-fill" id="vip-progress-fill"></div></div>
+            <small id="vip-progress-label">Loading VIP spots reserved…</small>
+          </div>
           <small>Secure checkout powered by Stripe.</small>
-          <small>Not happy? Email us within 30 days for a full refund.</small>
+          <small>Change your mind? Email us within 30 days for a full refund.</small>
         </div>
       </div>
     </section>
@@ -131,16 +135,18 @@
     <section class="section visual-section" id="cleanup"><div class="visual-split"><div class="big-visual-copy"><p class="eyebrow">Easy cleanup</p><h2>Hidden side drawer for cleaner mornings.</h2><p>The drainage drawer is designed to catch excess water out of sight so the nightstand setup stays simple and easy to maintain.</p></div><div class="product-strip-image"><img class="asset-placeholder-img" src="assets/easy-cleanup.webp" alt="MistWake hidden side drainage drawer" /></div></div></section>
 
     <section class="section benefits-section" id="specs"><div class="section-header centered"><p class="eyebrow">Key details</p><h2>Built for heavy sleepers.</h2></div><div class="compact-feature-grid spec-grid simplified-grid"><article class="compact-card"><strong>3.5-inch touchscreen</strong><span>Alarm, sound, mist, and timing controls.</span></article><article class="compact-card"><strong>Adjustable nozzle</strong><span>Point the mist toward your wake-up position.</span></article><article class="compact-card"><strong>Sound-only mode</strong><span>Use it like a normal alarm when you want.</span></article><article class="compact-card"><strong>Hidden drainage drawer</strong><span>Collects excess water for easier cleanup.</span></article></div></section>
+    <section class="section closeup-section" id="closeup"><div class="section-header centered"><p class="eyebrow">Design detail</p><h2>A closer look at the nozzle and the specs.</h2></div><div class="closeup-grid"><figure><img class="asset-placeholder-img" src="assets/nozzle-closeup.webp" alt="MistWake adjustable mist nozzle design" /><figcaption>The adjustable nozzle design.</figcaption></figure><figure><img class="asset-placeholder-img" src="assets/dimensions.webp" alt="MistWake dimensions diagram showing size, weight, and water tank capacity" /><figcaption>Size, weight, and tank capacity.</figcaption></figure></div></section>
     <section class="section visual-section" id="touchscreen"><div class="visual-split"><div class="product-strip-image"><img class="asset-placeholder-img" src="assets/touchscreen-control.webp" alt="MistWake touchscreen controls" /></div><div class="big-visual-copy"><p class="eyebrow">Smart touchscreen</p><h2>Control alarm, spray, and settings from one screen.</h2><p>Adjust the wake-up time, sound, spray duration, spray count, brightness, and display mode directly from the touchscreen.</p></div></div></section>
     <section class="section visual-section" id="box"><div class="visual-split"><div class="big-visual-copy"><p class="eyebrow">What comes with it</p><h2>Planned launch box.</h2><p>MistWake alarm, power adapter, waterproof mat, and quick-start guide.</p></div><div class="product-strip-image"><img class="asset-placeholder-img" src="assets/package-contents.webp" alt="MistWake alarm, power adapter, waterproof mat, and guide" /></div></div></section>
 
     <section class="section signup-section" id="free-list-section"><div class="signup-card"><p class="eyebrow">Free Launch List</p><h2>Not ready to reserve?</h2><p>Join the free list for <span class="kickstarter-green">Kickstarter</span> launch updates.</p><iframe name="hidden-google-form" id="hidden-google-form" style="display:none" onload="handleGoogleFormLoad()"></iframe><form class="waitlist-form waitlist-inline-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfZo_Jkvh-63lx4Xw7ATk1gq0Trrhzw4v2I991Rjdh9OaQ0gQ/formResponse" method="POST" target="hidden-google-form" onsubmit="return handleWaitlistSubmit()"><input type="email" name="entry.1340972973" id="email" placeholder="Enter your email" required /><button type="submit">Join Free List</button></form><p id="form-message" aria-live="polite"></p></div></section>
-    <section class="section faq-section" id="faq"><div class="section-header centered"><p class="eyebrow">FAQ</p><h2>Quick answers.</h2></div><div class="faq-list"><article class="card"><h3>What does the $1 reservation include?</h3><p>It gives you VIP launch access and unlocks the planned $89 <span class="kickstarter-green">Kickstarter</span> VIP price instead of the expected $139 MSRP. It does not buy the product.</p></article><article class="card"><h3>Will I still need to pledge on <span class="kickstarter-green">Kickstarter</span>?</h3><p>Yes. The reservation gives VIP access only. You still need to pledge on <span class="kickstarter-green">Kickstarter</span> to receive MistWake.</p></article><article class="card"><h3>Has the prototype been built?</h3><p>Yes. A functional works-like prototype has been built.</p></article><article class="card"><h3>Is this a splash of water?</h3><p>No. MistWake is designed around a controlled fine mist cue, not a large splash.</p></article><article class="card"><h3>What if I change my mind?</h3><p>The $1 reservation only secures VIP access. If you'd like a refund on the $1, email us within 30 days.</p></article></div></section>
+    <section class="section faq-section" id="faq"><div class="section-header centered"><p class="eyebrow">FAQ</p><h2>Quick answers.</h2></div><div class="faq-list"><article class="card"><h3>What does the $1 reservation include?</h3><p>It gives you VIP launch access and unlocks the planned $89 <span class="kickstarter-green">Kickstarter</span> VIP price instead of the expected $139 MSRP. It does not buy the product.</p></article><article class="card"><h3>Will I still need to pledge on <span class="kickstarter-green">Kickstarter</span>?</h3><p>Yes. The reservation gives VIP access only. You still need to pledge on <span class="kickstarter-green">Kickstarter</span> to receive MistWake.</p></article><article class="card"><h3>Has the prototype been built?</h3><p>Yes. A functional works-like prototype has been built.</p></article><article class="card"><h3>Is this a splash of water?</h3><p>No. MistWake is designed around a controlled fine mist cue, not a large splash.</p></article><article class="card"><h3>What if I change my mind?</h3><p>The $1 reservation only secures VIP access. If you'd like a refund on the $1, email us within 30 days.</p></article><article class="card"><h3>Does the $1 count toward my Kickstarter pledge?</h3><p>No. The $1 only secures your VIP access and the discounted price — it's separate from whatever you pledge on Kickstarter.</p></article><article class="card"><h3>What happens if the campaign is delayed?</h3><p>You'll get an email update on any timeline changes. If the campaign doesn't launch, the $1 reservation fee is refunded.</p></article></div></section>
     <section class="section final-cta-section"><div class="final-cta-card"><h2>Reserve VIP access before launch.</h2><p>Expected retail is $139 MSRP. VIP backers pay the planned $89 <span class="kickstarter-green">Kickstarter</span> price.</p><a class="primary-btn reserve-link" href="https://buy.stripe.com/aFa7sLcA3aXC3IIfQidIA00" target="_blank" rel="noopener">Reserve VIP Access for $1</a></div></section>
   </main>
 
   <div class="mobile-sticky-cta" aria-label="Mobile reservation bar"><span>$1 reserves $89 VIP price</span><a class="reserve-link" href="https://buy.stripe.com/aFa7sLcA3aXC3IIfQidIA00" target="_blank" rel="noopener">Reserve</a></div>
-  <footer><div class="footer-brand"><img src="assets/mistwake-logo.png.png" alt="MistWake logo" /><p>© 2026 MistWake.</p></div><a href="#top">Back to top</a></footer>
-  <script src="script.js?v=40"></script>
+  <footer><div class="footer-brand"><img src="assets/mistwake-logo.png.png" alt="MistWake logo" /><p>© 2026 MistWake. <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms</a> · <a href="mailto:support@mistwake.online">support@mistwake.online</a></p></div><a href="#top">Back to top</a></footer>
+  <script src="script.js?v=41"></script>
+  <script src="social-links.js?v=41"></script>
 </body>
 </html>
