@@ -1,18 +1,13 @@
 .kickstarter-green {
-  color: #05ce78 !important;
-  font-family: "Cooper Black", "Luckiest Guy", "Arial Black", "Helvetica Neue", Arial, sans-serif !important;
-  font-weight: 900 !important;
-  letter-spacing: 0.01em;
-  display: inline !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  line-height: inherit !important;
-  font-size: inherit !important;
-  text-transform: inherit !important;
+  /* Previously replicated Kickstarter's exact brand color (#05ce78) and a
+     Kickstarter-style display font for their trademarked name, on a page
+     that isn't an official Kickstarter campaign yet. Rendering it as plain
+     text avoids implying an affiliation/endorsement that doesn't exist. */
+  display: inline;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
 }
 
 .mobile-copy,
