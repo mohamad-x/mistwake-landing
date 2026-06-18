@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MistWake | Follow MistWake's Path to Kickstarter</title>
+  <meta name="description" content="Get prototype updates, testing results, and the Kickstarter launch announcement for MistWake — a bedside alarm that begins with sound and can add an optional fine-mist cue." />
+  <link rel="canonical" href="https://mistwake.online/launch-list/" />
+  <link rel="icon" type="image/png" href="../assets/mistwake-logo.png.png" />
+  <link rel="apple-touch-icon" href="../assets/mistwake-logo.png.png" />
+  <link rel="stylesheet" href="../styles.css?v=43" />
+  <link rel="stylesheet" href="../visual.css?v=43" />
+  <link rel="stylesheet" href="../landing-fixes.css?v=43" />
+</head>
+<body>
+  <header class="navbar">
+    <a class="logo" href="../" aria-label="MistWake home">
+      <img class="logo-img" src="../assets/mistwake-logo.png.png" alt="MistWake logo" />
+      <span>MistWake</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="../">Back to main page</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="section signup-section" id="free-list-section" style="padding-top:64px;">
+      <div class="signup-card">
+        <p class="eyebrow">Free Launch List</p>
+        <h2>Follow MistWake's path to Kickstarter</h2>
+        <p>Get prototype updates, testing results, and the Kickstarter launch announcement.</p>
+        <p class="qualifier-note">Joining the free list does not include the $50 VIP discount. That requires the separate $1 VIP reservation on the <a href="../#offer">main page</a>.</p>
+        <iframe name="hidden-google-form" id="hidden-google-form" style="display:none" onload="handleGoogleFormLoad()"></iframe>
+        <form class="waitlist-form waitlist-inline-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfZo_Jkvh-63lx4Xw7ATk1gq0Trrhzw4v2I991Rjdh9OaQ0gQ/formResponse" method="POST" target="hidden-google-form" onsubmit="return handleWaitlistSubmit()">
+          <input type="email" name="entry.1340972973" id="email" placeholder="Enter your email" required />
+          <button type="submit">Join the Free Launch List</button>
+        </form>
+        <p id="form-message" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="footer-brand"><img src="../assets/mistwake-logo.png.png" alt="MistWake logo" /><p>© 2026 MistWake. <a href="../privacy.html">Privacy Policy</a> · <a href="../terms.html">Terms</a> · <a href="mailto:support@mistwake.online">support@mistwake.online</a></p></div><a href="../">Back to main page</a></footer>
+  <script src="../consent.js?v=43"></script>
+  <script src="../script.js?v=43"></script>
+</body>
+</html>
