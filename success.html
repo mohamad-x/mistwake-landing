@@ -6,9 +6,9 @@
   <title>MistWake VIP Access Reserved</title>
   <meta name="robots" content="noindex, nofollow" />
   <link rel="icon" type="image/png" href="assets/mistwake-logo.png.png" />
-  <link rel="stylesheet" href="styles.css?v=43" />
-  <link rel="stylesheet" href="visual.css?v=43" />
-  <link rel="stylesheet" href="landing-fixes.css?v=43" />
+  <link rel="stylesheet" href="styles.css?v=52" />
+  <link rel="stylesheet" href="visual.css?v=52" />
+  <link rel="stylesheet" href="landing-fixes.css?v=52" />
 </head>
 <body>
   <main class="section final-cta-section">
@@ -16,7 +16,7 @@
       <img src="assets/mistwake-logo.png.png" alt="MistWake logo" style="width:72px;height:72px;object-fit:contain;margin-bottom:18px;" />
       <p class="eyebrow">VIP access reserved</p>
       <h1 style="font-size:clamp(2.2rem, 6vw, 4.4rem);line-height:1;letter-spacing:-1.8px;margin-bottom:16px;">Your MistWake VIP access is reserved.</h1>
-      <p>Your one-time $1 reservation unlocks access to a private Kickstarter reward with $50 off MistWake's planned retail price.</p>
+      <p>Your one-time $1 reservation unlocks access to a private Kickstarter reward with $70 off MistWake's planned MSRP.</p>
       <p class="qualifier-note">The $1 does not purchase MistWake and is separate from your future Kickstarter pledge.</p>
       <p style="margin-top:14px;">When MistWake launches, we will email your private reward link and redemption instructions.</p>
 
@@ -39,7 +39,7 @@
     </div>
   </main>
 
-  <script src="consent.js?v=43"></script>
+  <script src="consent.js?v=52"></script>
   <script>
     function mwGetEventId() {
       var p = new URLSearchParams(location.search);
@@ -67,8 +67,8 @@
       }
       // If consent hasn't been granted yet, the banner shown by consent.js will
       // collect it; Purchase simply won't be tracked client-side until then.
-      // (Real proof of payment should come from a server-side Stripe webhook,
-      // not this page load -- see docs/stripe-webhook-setup.md.)
+      // (Real proof of payment should come from a server-side payment processor webhook,
+      // not this page load -- see docs/payment-setup.md.)
 
       document.querySelectorAll('.survey-option').forEach(function (btn) {
         btn.addEventListener('click', function () {

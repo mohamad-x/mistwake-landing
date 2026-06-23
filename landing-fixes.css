@@ -569,9 +569,24 @@
 
 .closeup-grid.three-col {
   grid-template-columns: 1fr 1fr 1fr;
+  align-items: start;
+}
+
+.closeup-grid.three-col figure img {
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
 }
 
 @media (max-width: 900px) {
+  .closeup-grid.three-col {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
   .closeup-grid.three-col {
     grid-template-columns: 1fr;
   }
