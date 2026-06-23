@@ -58,6 +58,36 @@ function updateReservationFunnelCopy(){
   }
 }
 
+function assetPath(path){return window.location.pathname.indexOf('/vip/')===0?'../'+path:path;}
+
+function imageSection(id,eyebrow,title,img,alt,note){
+  var s=document.createElement('section');
+  s.className='section visual-section';
+  s.id=id;
+  s.innerHTML='<div class="section-header centered"><p class="eyebrow">'+eyebrow+'</p><h2>'+title+'</h2></div><div class="product-strip-image"><img class="asset-placeholder-img" src="'+assetPath(img)+'" alt="'+alt+'" loading="lazy" /></div><p class="qualifier-note centered-note">'+note+'</p>';
+  return s;
+}
+
+function detailSection(){
+  var s=document.createElement('section');
+  s.className='section closeup-section';
+  s.id='design-detail';
+  s.innerHTML='<div class="section-header centered"><p class="eyebrow">Design details</p><h2>Nozzle and current measurements.</h2></div><div class="closeup-grid"><figure><img class="asset-placeholder-img" src="'+assetPath('assets/nozzle-closeup.webp?v=47')+'" alt="MistWake nozzle detail" loading="lazy" /><figcaption>Nozzle design direction.</figcaption></figure><figure><img class="asset-placeholder-img" src="'+assetPath('assets/dimensions.webp?v=47')+'" alt="MistWake dimensions diagram" loading="lazy" /><figcaption>Current dimensions, subject to manufacturing tolerance.</figcaption></figure></div>';
+  return s;
+}
+
+function addVisualSections(){
+  if(document.getElementById('visual-hook'))return;
+  var trust=document.querySelector('.trust-strip-section');
+  if(trust&&trust.parentNode){trust.parentNode.insertBefore(imageSection('visual-hook','The problem','Still sleeping through normal alarms?','assets/ad-sleeping-through-alarms.webp?v=47','MistWake visual explainer showing the problem of sleeping through alarms','Marketing visual used to explain the problem. Real prototype proof is shown below.'),trust.nextSibling);}
+  var how=document.getElementById('how');
+  if(how&&how.parentNode){how.parentNode.insertBefore(imageSection('better-way','Sound plus mist','A second cue for heavy sleepers.','assets/ad-better-way-wake-up.webp?v=47','MistWake visual explainer showing sound plus mist as a wake-up cue','Marketing visual. Actual prototype photos and video are included on this page.'),how.nextSibling);}
+  var proof=document.getElementById('proof');
+  if(proof&&proof.parentNode){proof.parentNode.insertBefore(imageSection('features','Feature overview','Smart mist. Better mornings.','assets/feature-overview.webp?v=47','MistWake feature overview','Feature overview is based on the current product plan and prototype direction. Final production specifications may change.'),proof.nextSibling);}
+  var specs=document.getElementById('specs');
+  if(specs&&specs.parentNode){specs.parentNode.insertBefore(detailSection(),specs);}
+}
+
 /* Reads UTM params + fbclid from the current page URL and appends them to the Gumroad product URL, so reservation clicks can still be reviewed with campaign/ad/creative context. */
 function attachAttributionToReserveLinks(){
   var params=new URLSearchParams(window.location.search);
@@ -71,15 +101,13 @@ function attachAttributionToReserveLinks(){
   });
 }
 
-function assetPath(path){return window.location.pathname.indexOf('/vip/')===0?'../'+path:path;}
-
-function applyVideo(){var holder=document.querySelector('#proof-video .visual-proof-image');if(!holder||holder.querySelector('video'))return;var v=document.createElement('video');v.className='asset-placeholder-img';v.controls=true;v.playsInline=true;v.preload='metadata';v.poster=assetPath('assets/real-prototype-handheld.webp');var s=document.createElement('source');s.src=assetPath('assets/prototype-demo.mp4?v=44');s.type='video/mp4';v.appendChild(s);holder.innerHTML='';holder.appendChild(v);
+function applyVideo(){var holder=document.querySelector('#proof-video .visual-proof-image');if(!holder||holder.querySelector('video'))return;var v=document.createElement('video');v.className='asset-placeholder-img';v.controls=true;v.playsInline=true;v.preload='metadata';v.poster=assetPath('assets/real-prototype-handheld.webp');var s=document.createElement('source');s.src=assetPath('assets/prototype-demo.mp4?v=47');s.type='video/mp4';v.appendChild(s);holder.innerHTML='';holder.appendChild(v);
   var started=false;
   v.addEventListener('play',function(){if(started)return;started=true;if(typeof gtag==='function')gtag('event','video_start',{event_label:'prototype_demo'});});
   v.addEventListener('ended',function(){if(typeof gtag==='function')gtag('event','video_complete',{event_label:'prototype_demo'});});
 }
 
-function applyVipProgress(){var fill=document.getElementById('vip-progress-fill');var label=document.getElementById('vip-progress-label');if(!fill||!label)return;fetch(assetPath('assets/vip-reservations.json?v=44')).then(function(r){return r.json();}).then(function(data){var reserved=data.reserved||0;var total=data.total||1;var pct=Math.max(2,Math.min(100,Math.round((reserved/total)*100)));fill.style.width=pct+'%';label.textContent=reserved+' of '+total+' VIP spots reserved';}).catch(function(){var box=document.getElementById('vip-progress');if(box)box.style.display='none';});}
+function applyVipProgress(){var fill=document.getElementById('vip-progress-fill');var label=document.getElementById('vip-progress-label');if(!fill||!label)return;fetch(assetPath('assets/vip-reservations.json?v=47')).then(function(r){return r.json();}).then(function(data){var reserved=data.reserved||0;var total=data.total||1;var pct=Math.max(2,Math.min(100,Math.round((reserved/total)*100)));fill.style.width=pct+'%';label.textContent=reserved+' of '+total+' VIP spots reserved';}).catch(function(){var box=document.getElementById('vip-progress');if(box)box.style.display='none';});}
 
 function applyFaqTracking(){document.querySelectorAll('.faq-item').forEach(function(d){d.addEventListener('toggle',function(){if(d.open&&typeof gtag==='function'){var q=d.querySelector('summary');gtag('event','faq_open',{event_label:q?q.textContent.trim():''});}});});}
 
@@ -87,6 +115,7 @@ function applyOfferViewTracking(){var el=document.getElementById('offer');if(!el
 
 document.addEventListener('DOMContentLoaded',function(){
   updateReservationFunnelCopy();
+  addVisualSections();
   document.querySelectorAll('.reserve-link').forEach(function(l){l.addEventListener('click',trackReservationClick);});
   document.querySelectorAll('.kickstarter-follow-link').forEach(function(l){l.addEventListener('click',function(e){if(l.getAttribute('aria-disabled')==='true')e.preventDefault();trackKickstarterClick();});});
   document.querySelectorAll('.waitlist-form button').forEach(function(b){b.dataset.originalText=b.textContent;});
