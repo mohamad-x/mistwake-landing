@@ -1,7 +1,6 @@
 /* MistWake consent management.
    Gates Meta Pixel, TikTok Pixel, and GA4 so none of them load until the
-   visitor has made a choice. Necessary/site-function scripts (Stripe link,
-   page itself) are never gated since no consent is required for those. */
+   visitor has made a choice. Necessary/site-function scripts are never gated. */
 (function () {
   var KEY = 'mistwake_consent_v1';
 
@@ -48,7 +47,7 @@
       t = b.createElement(e); t.async = !0; t.src = v;
       s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
     })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1630414827119329');
+    fbq('init', '2018199632137449');
     fbq('track', 'PageView');
   }
 
