@@ -11,9 +11,9 @@ function collectAttribution(){
 }
 
 function showWaitlistSuccess(form){
-  if(form)form.style.display='none';
-  var m=document.getElementById('form-message');if(m)m.textContent='';
-  var s=document.getElementById('signup-success');if(s)s.style.display='block';
+  var m=document.getElementById('form-message');if(m)m.textContent="You're on the list — taking you to the next step…";
+  var qs=window.location.search||'';
+  setTimeout(function(){window.location.href='/thank-you/'+qs;},600);
 }
 
 function handleWaitlistSubmit(e){
