@@ -8,9 +8,9 @@
   <link rel="canonical" href="https://mistwake.online/launch-list/" />
   <link rel="icon" type="image/png" href="../assets/mistwake-logo.png.png" />
   <link rel="apple-touch-icon" href="../assets/mistwake-logo.png.png" />
-  <link rel="stylesheet" href="../styles.css?v=52" />
-  <link rel="stylesheet" href="../visual.css?v=52" />
-  <link rel="stylesheet" href="../landing-fixes.css?v=52" />
+  <link rel="stylesheet" href="../styles.css?v=53" />
+  <link rel="stylesheet" href="../visual.css?v=53" />
+  <link rel="stylesheet" href="../landing-fixes.css?v=53" />
 </head>
 <body>
   <header class="navbar">
@@ -29,19 +29,30 @@
         <p class="eyebrow">Free Launch List</p>
         <h2>Follow MistWake's path to Kickstarter</h2>
         <p>Get prototype updates, testing results, and the Kickstarter launch announcement.</p>
-        <p class="qualifier-note">Joining the free list does not include the $50 VIP discount. That requires the separate $1 VIP reservation on the <a href="../#offer">main page</a>.</p>
-        <iframe name="hidden-google-form" id="hidden-google-form" style="display:none" onload="handleGoogleFormLoad()"></iframe>
-        <form class="waitlist-form waitlist-inline-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfZo_Jkvh-63lx4Xw7ATk1gq0Trrhzw4v2I991Rjdh9OaQ0gQ/formResponse" method="POST" target="hidden-google-form" onsubmit="return handleWaitlistSubmit()">
-          <input type="email" name="entry.1340972973" id="email" placeholder="Enter your email" required />
+        <p class="qualifier-note">Joining the free list does not include the $70 VIP discount. That requires the separate $1 VIP reservation on the <a href="../#offer">main page</a>.</p>
+        <form class="waitlist-form waitlist-inline-form" onsubmit="return handleWaitlistSubmit(event)">
+          <input type="email" name="email" id="email" placeholder="Enter your email" required />
           <button type="submit">Join the Free Launch List</button>
         </form>
         <p id="form-message" aria-live="polite"></p>
+        <div id="signup-success" style="display:none;">
+          <p class="eyebrow">You're on the list ✓</p>
+          <h2>You're on the MistWake launch list.</h2>
+          <p>Two ways to lock in your spot for launch day:</p>
+          <div class="hero-actions" style="justify-content:center;margin-top:18px;">
+            <a class="primary-btn kickstarter-follow-link" href="https://www.kickstarter.com/projects/mistwake/mistwake-a-sound-mist-alarm-clock" target="_blank" rel="noopener">Get notified on Kickstarter</a>
+          </div>
+          <p class="qualifier-note" style="margin-top:20px;">Want the $70 VIP discount locked in? Reserve now with a one-time $1 payment.</p>
+          <div class="hero-actions" style="justify-content:center;margin-top:8px;">
+            <a class="primary-btn reserve-link" href="https://mistwake.gumroad.com/l/fhbea" target="_blank" rel="noopener">Reserve VIP access for $1</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer><div class="footer-brand"><img src="../assets/mistwake-logo.png.png" alt="MistWake logo" /><p>© 2026 MistWake. <a href="../privacy.html">Privacy Policy</a> · <a href="../terms.html">Terms</a> · <a href="mailto:support@mistwake.online">support@mistwake.online</a></p></div><a href="../">Back to main page</a></footer>
-  <script src="../consent.js?v=52"></script>
-  <script src="../script.js?v=52"></script>
+  <script src="../consent.js?v=53"></script>
+  <script src="../script.js?v=53"></script>
 </body>
 </html>
