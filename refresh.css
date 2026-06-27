@@ -1,0 +1,451 @@
+/* Human-first refresh layer: loaded after the legacy CSS to simplify the landing and thank-you pages. */
+:root {
+  --soft-bg: #0b0f14;
+  --soft-panel: rgba(255, 255, 255, 0.065);
+  --soft-panel-strong: rgba(255, 255, 255, 0.1);
+  --soft-line: rgba(255, 255, 255, 0.12);
+  --soft-copy: rgba(247, 241, 232, 0.78);
+}
+
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(120, 213, 255, 0.12), transparent 30%),
+    radial-gradient(circle at 88% 6%, rgba(255, 184, 77, 0.13), transparent 28%),
+    linear-gradient(180deg, #0b0f14 0%, #080b10 58%, #0b0f14 100%);
+}
+
+.navbar {
+  min-height: 68px;
+  background: rgba(11, 15, 20, 0.86);
+}
+
+.nav-links {
+  gap: 20px;
+}
+
+.nav-cta,
+.primary-btn {
+  letter-spacing: -0.01em;
+}
+
+.human-hero {
+  padding: 62px 6% 42px;
+}
+
+.human-hero .hero-shell {
+  width: min(100%, 1120px);
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
+  gap: 46px;
+}
+
+.human-hero .hero-copy,
+.human-hero .hero-visual {
+  text-align: left;
+}
+
+.human-hero .hero-copy {
+  order: 1;
+}
+
+.human-hero .hero-visual {
+  order: 2;
+}
+
+.human-hero h1 {
+  max-width: 760px;
+  font-size: clamp(2.8rem, 6vw, 5.7rem);
+  line-height: 0.96;
+  letter-spacing: -0.055em;
+}
+
+.human-hero .hero-subtitle {
+  max-width: 680px;
+  color: var(--soft-copy);
+  font-size: clamp(1.04rem, 1.6vw, 1.22rem);
+}
+
+.human-hero .hero-actions {
+  display: grid;
+  gap: 12px;
+  max-width: 620px;
+}
+
+.human-hero .waitlist-inline-form {
+  width: 100%;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.075);
+}
+
+.human-hero .waitlist-inline-form button {
+  background: linear-gradient(135deg, var(--amber), var(--amber-dark));
+  color: #1c1308;
+}
+
+.hero-secondary-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.hero-microcopy {
+  max-width: 620px;
+  color: rgba(247, 241, 232, 0.62);
+  font-size: 0.94rem;
+}
+
+.human-product-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.035));
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.38);
+}
+
+.human-product-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.trust-strip-section {
+  margin-bottom: 0;
+}
+
+.trust-strip-section .trust-row {
+  gap: 8px;
+}
+
+.trust-row span {
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.section {
+  padding-top: 54px;
+  padding-bottom: 54px;
+}
+
+.section-header {
+  margin-bottom: 26px;
+}
+
+.section-header h2,
+.short-proof-card h2,
+.offer-copy h2,
+.final-cta-card h2,
+.thank-hero h1 {
+  letter-spacing: -0.045em;
+}
+
+.section-header p {
+  color: var(--soft-copy);
+  font-size: 1.02rem;
+}
+
+.human-card-grid,
+.thank-step-grid {
+  width: min(100%, 1040px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.human-mini-card {
+  min-height: 132px;
+  padding: 22px;
+  border-radius: 22px;
+  border: 1px solid var(--soft-line);
+  background: var(--soft-panel);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.24);
+}
+
+.human-mini-card strong,
+.human-mini-card span {
+  display: block;
+}
+
+.human-mini-card strong {
+  margin-bottom: 8px;
+  font-size: 1.08rem;
+  line-height: 1.2;
+}
+
+.human-mini-card span {
+  color: var(--soft-copy);
+  font-size: 0.96rem;
+}
+
+.simple-proof .section-header {
+  max-width: 780px;
+}
+
+.simple-proof .visual-proof-grid {
+  gap: 22px;
+}
+
+.short-proof-card,
+.compact-card,
+.how-card,
+.faq-item,
+.final-cta-card,
+.offer-card,
+.offer-box,
+.kickstarter-card {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.simple-feature-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.compact-card {
+  min-height: 132px;
+}
+
+.offer-detail-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 18px;
+}
+
+.simple-offer .offer-card,
+.thank-offer-section .offer-card {
+  align-items: stretch;
+}
+
+.offer-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.offer-box strong {
+  letter-spacing: -0.06em;
+}
+
+.offer-box small {
+  line-height: 1.45;
+}
+
+.faq-list.accordion-list {
+  width: min(100%, 860px);
+  padding: 0;
+}
+
+.faq-item {
+  border-radius: 18px;
+}
+
+.final-cta-card {
+  background:
+    radial-gradient(circle at top, rgba(255, 184, 77, 0.13), transparent 56%),
+    var(--soft-panel-strong);
+}
+
+.thank-you-page .mobile-sticky-cta {
+  display: none;
+}
+
+.thank-hero {
+  padding: 64px 6% 30px;
+}
+
+.thank-hero .hero-shell-text-only {
+  max-width: 840px;
+  text-align: center;
+}
+
+.thank-hero .hero-copy {
+  order: 1;
+  text-align: center;
+}
+
+.thank-hero h1 {
+  max-width: 840px;
+  margin: 0 auto;
+  font-size: clamp(2.65rem, 5.5vw, 5rem);
+}
+
+.thank-hero .hero-subtitle {
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.kickstarter-thank-section {
+  padding-top: 36px;
+}
+
+.kickstarter-card {
+  width: min(100%, 900px);
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 184, 77, 0.24);
+  background: linear-gradient(135deg, rgba(255, 184, 77, 0.1), rgba(120, 213, 255, 0.045)), var(--soft-panel);
+}
+
+.kickstarter-card strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 1.18rem;
+}
+
+.kickstarter-card p {
+  max-width: 560px;
+  color: var(--soft-copy);
+}
+
+.kickstarter-card .primary-btn {
+  flex: 0 0 auto;
+}
+
+.thank-step-grid {
+  width: min(100%, 900px);
+}
+
+.thank-offer-section {
+  padding-top: 34px;
+}
+
+@media (max-width: 1050px) {
+  .human-hero .hero-shell {
+    grid-template-columns: 1fr;
+    max-width: 780px;
+    text-align: center;
+  }
+
+  .human-hero .hero-copy,
+  .human-hero .hero-visual {
+    text-align: center;
+  }
+
+  .human-hero .hero-copy {
+    order: 1;
+  }
+
+  .human-hero .hero-visual {
+    order: 2;
+  }
+
+  .human-hero .hero-subtitle,
+  .human-hero h1,
+  .hero-microcopy,
+  .human-hero .hero-actions {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-secondary-actions {
+    justify-content: center;
+  }
+
+  .human-card-grid,
+  .thank-step-grid,
+  .simple-feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .offer-detail-list {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .kickstarter-card {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    min-height: 58px;
+  }
+
+  .human-hero {
+    padding-top: 24px;
+    padding-bottom: 28px;
+  }
+
+  .human-hero .hero-shell {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .human-hero .hero-copy {
+    order: 1;
+  }
+
+  .human-hero .hero-visual {
+    order: 2;
+  }
+
+  .human-hero h1 {
+    font-size: clamp(2.25rem, 11vw, 3.35rem);
+    line-height: 0.98;
+  }
+
+  .human-product-card,
+  .human-product-card img {
+    border-radius: 20px;
+  }
+
+  .human-product-card img {
+    aspect-ratio: 16 / 11;
+  }
+
+  .hero-secondary-actions .text-link {
+    width: 100%;
+  }
+
+  .section {
+    padding-top: 38px;
+    padding-bottom: 38px;
+  }
+
+  .human-card-grid,
+  .thank-step-grid,
+  .simple-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .human-mini-card,
+  .compact-card {
+    min-height: auto;
+  }
+
+  .offer-copy,
+  .offer-card {
+    text-align: center;
+  }
+
+  .offer-detail-list {
+    font-size: 0.9rem;
+  }
+
+  .thank-hero {
+    padding-top: 34px;
+  }
+
+  .thank-hero h1 {
+    font-size: clamp(2.2rem, 10vw, 3.2rem);
+  }
+
+  .kickstarter-card {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .kickstarter-card .primary-btn {
+    width: 100%;
+  }
+}
