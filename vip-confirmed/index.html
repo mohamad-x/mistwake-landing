@@ -3,26 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MistWake VIP Access Reserved</title>
+  <title>MistWake | VIP Access Reserved</title>
   <meta name="robots" content="noindex, nofollow" />
   <link rel="icon" type="image/png" href="../assets/mistwake-logo.png.png" />
-  <link rel="stylesheet" href="../styles.css?v=53" />
-  <link rel="stylesheet" href="../visual.css?v=53" />
-  <link rel="stylesheet" href="../landing-fixes.css?v=53" />
+  <link rel="stylesheet" href="../styles.css?v=54" />
+  <link rel="stylesheet" href="../visual.css?v=54" />
+  <link rel="stylesheet" href="../landing-fixes.css?v=54" />
+  <link rel="stylesheet" href="../refresh.css?v=54" />
 </head>
-<body>
-  <main class="section final-cta-section">
-    <div class="final-cta-card">
-      <img src="../assets/mistwake-logo.png.png" alt="MistWake logo" style="width:72px;height:72px;object-fit:contain;margin-bottom:18px;" />
-      <p class="eyebrow">VIP access reserved</p>
-      <h1 style="font-size:clamp(2.2rem, 6vw, 4.4rem);line-height:1;letter-spacing:-1.8px;margin-bottom:16px;">Your MistWake VIP access is reserved.</h1>
-      <p>Your one-time $1 reservation unlocks access to a private Kickstarter reward with 0 off MSRP MistWake's planned MSRP.</p>
-      <p class="qualifier-note">The $1 does not purchase MistWake and is separate from your future Kickstarter pledge.</p>
-      <p style="margin-top:14px;">When MistWake launches, we will email your private reward link and redemption instructions.</p>
+<body class="thank-you-page">
+  <header class="navbar">
+    <a class="logo" href="../" aria-label="MistWake home"><img class="logo-img" src="../assets/mistwake-logo.png.png" alt="MistWake logo" /><span>MistWake</span></a>
+    <nav class="nav-links" aria-label="Primary navigation"><a href="#kickstarter">Kickstarter</a><a href="#survey">Quick question</a><a href="../">Home</a></nav>
+    <a class="nav-cta" href="../">Home</a>
+  </header>
 
-      <div class="founder-card" style="margin-top:36px;display:block;max-width:560px;">
-        <p class="eyebrow" style="text-align:center;">Optional — helps us build the right product</p>
-        <p style="text-align:center;margin-bottom:14px;">Which best describes your interest in MistWake?</p>
+  <main id="top">
+    <section class="hero-section thank-hero" aria-label="VIP reservation confirmation">
+      <div class="hero-shell hero-shell-text-only">
+        <div class="hero-copy">
+          <p class="eyebrow">VIP access reserved ✓</p>
+          <h1>Thank you — your MistWake VIP access is reserved.</h1>
+          <p class="hero-subtitle">Your one-time $1 reservation unlocks access to a private Kickstarter reward with $70 off MistWake's planned MSRP. The $1 does not purchase MistWake and is separate from your future Kickstarter pledge.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section kickstarter-thank-section" id="kickstarter">
+      <div class="section-header centered">
+        <p class="eyebrow">Next step</p>
+        <h2>Follow us on Kickstarter.</h2>
+        <p>This makes sure Kickstarter can notify you when the campaign goes live, so you can use your VIP access while the reward is available.</p>
+      </div>
+      <div class="kickstarter-card">
+        <div>
+          <strong>Click “Notify Me On Launch” on Kickstarter.</strong>
+          <p>When MistWake launches, we will also email your private reward link and redemption instructions.</p>
+        </div>
+        <a class="primary-btn kickstarter-follow-link" href="https://www.kickstarter.com/projects/mistwake/mistwake-a-sound-mist-alarm-clock" target="_blank" rel="noopener">Follow on Kickstarter</a>
+      </div>
+    </section>
+
+    <section class="section" id="survey">
+      <div class="section-header centered">
+        <p class="eyebrow">Optional</p>
+        <h2>One quick question.</h2>
+        <p>This helps us understand who MistWake is resonating with before launch.</p>
+      </div>
+      <div class="founder-card" style="display:block;max-width:600px;">
         <div id="vip-survey" class="offer-detail-list" style="display:flex;flex-direction:column;gap:8px;list-style:none;">
           <button type="button" class="survey-option" data-value="heavy_sleeper">I regularly sleep through ordinary alarms</button>
           <button type="button" class="survey-option" data-value="second_cue">I want a second wake-up cue</button>
@@ -33,13 +61,12 @@
         </div>
         <p id="vip-survey-thanks" style="display:none;text-align:center;margin-top:10px;">Thanks — that helps.</p>
       </div>
-
-      <a class="primary-btn kickstarter-follow-link" href="#" style="margin-top:28px;" aria-disabled="true" title="Available once the Kickstarter prelaunch page is live">Follow MistWake on Kickstarter (link coming soon)</a>
-      <a class="text-link" href="../" style="display:block;margin-top:18px;">Back to MistWake</a>
-    </div>
+    </section>
   </main>
 
-  <script src="../consent.js?v=53"></script>
+  <footer><div class="footer-brand"><img src="../assets/mistwake-logo.png.png" alt="MistWake logo" loading="lazy" /><p>© 2026 MistWake. <a href="../privacy.html">Privacy Policy</a> · <a href="../terms.html">Terms</a> · <a href="mailto:support@mistwake.online">support@mistwake.online</a></p></div><a href="#top">Back to top</a></footer>
+  <script src="../consent.js?v=54"></script>
+  <script src="../script.js?v=54"></script>
   <script>
     function mwGetEventId() {
       var p = new URLSearchParams(location.search);
@@ -47,29 +74,17 @@
     }
     function mwFirePurchase(consent) {
       var eventId = mwGetEventId();
-      if (consent.analytics && typeof gtag === 'function') {
+      if (consent && consent.analytics && typeof gtag === 'function') {
         gtag('event', 'purchase', { currency: 'USD', value: 1.00, transaction_id: eventId });
       }
-      if (consent.advertising) {
-        if (typeof fbq === 'function') {
-          fbq('track', 'Purchase', { value: 1.00, currency: 'USD', content_name: 'MistWake VIP Reservation', content_type: 'product' }, { eventID: eventId });
-        }
-        if (window.ttq && typeof ttq.track === 'function') {
-          ttq.track('Purchase', { value: 1.00, currency: 'USD' });
-        }
+      if (consent && consent.advertising) {
+        if (typeof fbq === 'function') fbq('track', 'Purchase', { value: 1.00, currency: 'USD', content_name: 'MistWake VIP Reservation', content_type: 'product' }, { eventID: eventId });
+        if (window.ttq && typeof ttq.track === 'function') ttq.track('Purchase', { value: 1.00, currency: 'USD' });
       }
     }
     document.addEventListener('DOMContentLoaded', function () {
-      var c = window.mistwakeConsent.get();
-      if (c) {
-        // give the consent-driven loaders a tick to attach fbq/gtag/ttq, then fire Purchase
-        setTimeout(function () { mwFirePurchase(c); }, 400);
-      }
-      // If consent hasn't been granted yet, the banner shown by consent.js will
-      // collect it; Purchase simply won't be tracked client-side until then.
-      // (Real proof of payment should come from a server-side payment webhook,
-      // not this page load -- see docs/stripe-webhook-setup.md.)
-
+      var c = window.mistwakeConsent && window.mistwakeConsent.get ? window.mistwakeConsent.get() : null;
+      if (c) setTimeout(function () { mwFirePurchase(c); }, 400);
       document.querySelectorAll('.survey-option').forEach(function (btn) {
         btn.addEventListener('click', function () {
           if (typeof gtag === 'function') gtag('event', 'vip_survey_response', { response: btn.dataset.value });
@@ -79,5 +94,6 @@
       });
     });
   </script>
+  <script src="../social-links.js?v=54"></script>
 </body>
 </html>
