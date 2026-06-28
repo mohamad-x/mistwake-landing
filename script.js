@@ -3,6 +3,7 @@ let waitlistSubmitted = false;
 const RESERVATION_URL = 'https://mistwake.gumroad.com/l/fhbea';
 const KICKSTARTER_URL = 'https://www.kickstarter.com/projects/mistwake/mistwake-a-sound-mist-alarm-clock';
 const WEBHOOK_URL = 'https://alphatestapp.online/webhook/mistwake-vip';
+const VIP_COUNTER_POLL_MS = 15000;
 
 function collectAttribution() {
   var params = new URLSearchParams(window.location.search);
@@ -96,33 +97,68 @@ function attachAttributionToReserveLinks() {
   });
 }
 
-function applyVideo() {
-  var holder = document.querySelector('#proof-video .visual-proof-image');
-  if (!holder || holder.querySelector('video')) return;
+var vipCounterState = { reserved: null, total: null, timer: null };
 
-  var video = document.createElement('video');
-  video.className = 'asset-placeholder-img';
-  video.controls = true;
-  video.playsInline = true;
-  video.preload = 'metadata';
-  video.poster = assetPath('assets/real-prototype-handheld.webp');
+function getVipCounterUrl() {
+  var box = document.getElementById('vip-progress');
+  var configured = (box && box.getAttribute('data-counter-url')) || window.MISTWAKE_VIP_COUNTER_URL || '';
+  return configured || assetPath('assets/vip-reservations.json');
+}
 
-  var source = document.createElement('source');
-  source.src = assetPath('assets/prototype-demo.mp4?v=54');
-  source.type = 'video/mp4';
-  video.appendChild(source);
-  holder.innerHTML = '';
-  holder.appendChild(video);
+function withCacheBuster(url) {
+  var joiner = url.indexOf('?') === -1 ? '?' : '&';
+  return url + joiner + 'ts=' + Date.now();
+}
 
-  var started = false;
-  video.addEventListener('play', function () {
-    if (started) return;
-    started = true;
-    if (typeof gtag === 'function') gtag('event', 'video_start', { event_label: 'prototype_demo' });
-  });
-  video.addEventListener('ended', function () {
-    if (typeof gtag === 'function') gtag('event', 'video_complete', { event_label: 'prototype_demo' });
-  });
+function normalizeVipCounter(data) {
+  var reserved = Number(data && (data.reserved ?? data.count ?? data.vip_reserved));
+  var total = Number(data && (data.total ?? data.capacity ?? data.vip_total));
+  if (!Number.isFinite(reserved) || reserved < 0) reserved = 0;
+  if (!Number.isFinite(total) || total < 1) total = 200;
+  return { reserved: Math.round(reserved), total: Math.round(total) };
+}
+
+function renderVipCounter(counter) {
+  var fill = document.getElementById('vip-progress-fill');
+  var label = document.getElementById('vip-progress-label');
+  if (!fill || !label) return;
+
+  var reserved = Math.min(counter.reserved, counter.total);
+  var total = counter.total;
+  var pct = Math.max(2, Math.min(100, Math.round((reserved / total) * 100)));
+  var previous = vipCounterState.reserved;
+
+  fill.style.width = pct + '%';
+
+  if (previous !== null && reserved > previous && window.requestAnimationFrame) {
+    var start = previous;
+    var delta = reserved - previous;
+    var startedAt = performance.now();
+    var duration = Math.min(900, 350 + delta * 120);
+    function step(now) {
+      var progress = Math.min(1, (now - startedAt) / duration);
+      var value = Math.round(start + delta * progress);
+      label.textContent = value + ' of ' + total + ' VIP spots reserved';
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  } else {
+    label.textContent = reserved + ' of ' + total + ' VIP spots reserved';
+  }
+
+  vipCounterState.reserved = reserved;
+  vipCounterState.total = total;
+}
+
+function fetchVipCounter() {
+  var url = getVipCounterUrl();
+  return fetch(withCacheBuster(url), { cache: 'no-store' })
+    .then(function (response) { if (!response.ok) throw new Error('status ' + response.status); return response.json(); })
+    .then(function (data) { renderVipCounter(normalizeVipCounter(data)); })
+    .catch(function () {
+      var box = document.getElementById('vip-progress');
+      if (box && vipCounterState.reserved === null) box.style.display = 'none';
+    });
 }
 
 function applyVipProgress() {
@@ -130,19 +166,9 @@ function applyVipProgress() {
   var label = document.getElementById('vip-progress-label');
   if (!fill || !label) return;
 
-  fetch(assetPath('assets/vip-reservations.json?v=54'))
-    .then(function (response) { return response.json(); })
-    .then(function (data) {
-      var reserved = data.reserved || 0;
-      var total = data.total || 1;
-      var pct = Math.max(2, Math.min(100, Math.round((reserved / total) * 100)));
-      fill.style.width = pct + '%';
-      label.textContent = reserved + ' of ' + total + ' VIP spots reserved';
-    })
-    .catch(function () {
-      var box = document.getElementById('vip-progress');
-      if (box) box.style.display = 'none';
-    });
+  fetchVipCounter();
+  if (vipCounterState.timer) clearInterval(vipCounterState.timer);
+  vipCounterState.timer = setInterval(fetchVipCounter, VIP_COUNTER_POLL_MS);
 }
 
 function applyFaqTracking() {
@@ -179,7 +205,6 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.kickstarter-follow-link').forEach(function (link) { link.addEventListener('click', trackKickstarterClick); });
   document.querySelectorAll('.waitlist-form button').forEach(function (button) { button.dataset.originalText = button.textContent; });
   attachAttributionToReserveLinks();
-  applyVideo();
   applyVipProgress();
   applyFaqTracking();
   applyOfferViewTracking();
