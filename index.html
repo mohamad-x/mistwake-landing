@@ -16,23 +16,24 @@
   <meta name="twitter:description" content="Working prototype built. Join the free launch list and optionally lock in $70 off MSRP at launch." />
   <meta name="twitter:image" content="https://mistwake.online/assets/real-prototype-handheld.webp" />
   <link rel="icon" type="image/png" href="assets/mistwake-logo.png.png" />
-  <link rel="stylesheet" href="styles.css?v=54" />
-  <link rel="stylesheet" href="visual.css?v=54" />
-  <link rel="stylesheet" href="landing-fixes.css?v=54" />
-  <link rel="stylesheet" href="refresh.css?v=54" />
+  <link rel="stylesheet" href="styles.css?v=55" />
+  <link rel="stylesheet" href="visual.css?v=55" />
+  <link rel="stylesheet" href="landing-fixes.css?v=55" />
+  <link rel="stylesheet" href="refresh.css?v=55" />
+  <link rel="stylesheet" href="media-refresh.css?v=55" />
 </head>
 <body>
   <header class="navbar">
     <a class="logo" href="#top" aria-label="MistWake home"><img class="logo-img" src="assets/mistwake-logo.png.png" alt="MistWake logo" /><span>MistWake</span></a>
-    <nav class="nav-links" aria-label="Primary navigation"><a href="#proof-video">Prototype</a><a href="#how">How it works</a><a href="#offer">Save $70</a><a href="#faq">FAQ</a></nav>
+    <nav class="nav-links" aria-label="Primary navigation"><a href="#proof-video">Video</a><a href="#gallery">Photos</a><a href="#how">How it works</a><a href="#offer">Save $70</a><a href="#faq">FAQ</a></nav>
     <a class="nav-cta" href="#join">Join free</a>
   </header>
 
   <main id="top">
-    <section class="hero-section human-hero" aria-label="MistWake pre-launch hero">
+    <section class="hero-section human-hero media-rich-hero" aria-label="MistWake pre-launch hero">
       <div class="hero-shell">
         <div class="hero-copy">
-          <p class="eyebrow">Kickstarter approved · working prototype built</p>
+          <p class="eyebrow">Kickstarter pre-launch page approved · working prototype built</p>
           <h1>Wake up with sound first. Mist only if you need it.</h1>
           <p class="hero-subtitle">MistWake is a bedside alarm for mornings when sound alone is easy to sleep through. It starts like a normal alarm, then can add a brief, aimed fine-mist cue if the alarm is not dismissed.</p>
           <div class="hero-actions" id="join">
@@ -45,14 +46,22 @@
           <p id="form-message" aria-live="polite"></p>
           <p class="hero-microcopy">Free launch updates. No spam. The optional $1 VIP reservation below unlocks $70 off MSRP at Kickstarter launch.</p>
         </div>
-        <div class="hero-visual human-product-card" aria-label="MistWake working prototype photo">
-          <img src="assets/real-prototype-handheld.webp" alt="Working prototype: real handheld photo of the MistWake unit" />
-          <div class="demo-overlay"><span class="pulse-dot"></span><span>Working prototype, not a render</span></div>
+        <div class="hero-media-stack" aria-label="MistWake working prototype media">
+          <div class="hero-video-card human-product-card">
+            <video class="hero-video-preview" autoplay muted loop playsinline preload="metadata" poster="assets/real-prototype-handheld.webp" aria-label="MistWake working prototype demo loop">
+              <source src="assets/prototype-demo.mp4?v=55" type="video/mp4" />
+            </video>
+            <div class="demo-overlay"><span class="pulse-dot"></span><span>Real prototype video</span></div>
+          </div>
+          <div class="hero-photo-pair">
+            <figure><img src="assets/real-prototype-touchscreen-1.webp" alt="MistWake working prototype touchscreen" loading="lazy" /><figcaption>Touchscreen controls</figcaption></figure>
+            <figure><img src="assets/real-prototype-mist-settings.webp" alt="MistWake working prototype mist settings screen" loading="lazy" /><figcaption>Mist settings</figcaption></figure>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="trust-strip-section" aria-label="Credibility points"><div class="trust-row hero-trust-row"><span>Real prototype</span><span>Optional mist mode</span><span>Free to join</span><span>$70 VIP launch discount</span></div></section>
+    <section class="trust-strip-section" aria-label="Credibility points"><div class="trust-row hero-trust-row"><span>Real prototype</span><span>Demo video</span><span>Optional mist mode</span><span>Free to join</span><span>$70 VIP launch discount</span></div></section>
 
     <section class="section human-story-section" aria-label="Why MistWake exists">
       <div class="section-header centered"><p class="eyebrow">The simple idea</p><h2>An alarm with a second cue.</h2><p>Most alarms only get louder. MistWake keeps the first step familiar, then adds a physical cue only when you need more than sound.</p></div>
@@ -64,10 +73,23 @@
     </section>
 
     <section class="section visual-proof-section simple-proof" id="proof-video">
-      <div class="section-header centered"><p class="eyebrow">Working prototype</p><h2>See the real unit.</h2><p>This is the physical prototype being operated on camera — not a render or simulation.</p></div>
+      <div class="section-header centered"><p class="eyebrow">Working prototype video</p><h2>Watch the real unit in action.</h2><p>This is the physical prototype being operated on camera — not a render or simulation.</p></div>
       <div class="visual-proof-grid">
-        <div class="visual-proof-image" aria-label="MistWake working prototype demo video"><img class="asset-placeholder-img" src="assets/real-prototype-handheld.webp" alt="Working prototype: real handheld photo of the MistWake unit" /></div>
+        <div class="visual-proof-image video-proof-frame" aria-label="MistWake working prototype demo video">
+          <video class="asset-placeholder-img" controls playsinline preload="metadata" poster="assets/real-prototype-handheld.webp">
+            <source src="assets/prototype-demo.mp4?v=55" type="video/mp4" />
+          </video>
+        </div>
         <div class="short-proof-card"><p class="eyebrow">Prototype proof</p><h2>Real footage. Real hardware.</h2><p>The demo shows the touchscreen, alarm sound, and mist system on the actual working prototype.</p><div class="proof-badges compact-badges"><span>Touchscreen controls</span><span>Adjustable nozzle</span><span>Real mist system</span></div><p class="media-caption-note">Final production details will be confirmed after production-intent testing.</p></div>
+      </div>
+    </section>
+
+    <section class="section media-gallery-section" id="gallery" aria-label="MistWake prototype photo gallery">
+      <div class="section-header centered"><p class="eyebrow">Prototype photos</p><h2>Closer looks at the actual hardware.</h2><p>These photos show the current working prototype, including the touchscreen, mist controls, and bedside form factor.</p></div>
+      <div class="prototype-gallery">
+        <figure><img src="assets/real-prototype-touchscreen-1.webp" alt="MistWake prototype touchscreen being used to set the alarm" loading="lazy" /><figcaption>Setting the alarm on the touchscreen.</figcaption></figure>
+        <figure><img src="assets/real-prototype-mist-settings.webp" alt="MistWake prototype mist settings screen" loading="lazy" /><figcaption>Adjusting the mist settings.</figcaption></figure>
+        <figure><img src="assets/real-prototype-logo-detail.webp" alt="MistWake working prototype on a bedside surface" loading="lazy" /><figcaption>Current prototype on a bedside surface.</figcaption></figure>
       </div>
     </section>
 
@@ -79,6 +101,14 @@
         <article class="how-card"><span>3</span><h3>Mist can activate</h3><p>If the alarm is not dismissed, it can add a brief, aimed fine-mist cue.</p></article>
       </div>
       <p class="how-note">Mist mode is optional and can be disabled.</p>
+    </section>
+
+    <section class="section design-detail-section" id="design-detail" aria-label="MistWake prototype design details">
+      <div class="section-header centered"><p class="eyebrow">Design details</p><h2>Nozzle, size, and current build.</h2><p>The current prototype includes an adjustable nozzle, touchscreen controls, and a 250 ml reservoir.</p></div>
+      <div class="design-media-grid">
+        <figure><img src="assets/nozzle-closeup.webp?v=55" alt="Close-up of the MistWake nozzle design" loading="lazy" /><figcaption>Adjustable nozzle design direction.</figcaption></figure>
+        <figure><img src="assets/dimensions.webp?v=55" alt="MistWake dimensions diagram" loading="lazy" /><figcaption>Current dimensions, subject to manufacturing tolerance.</figcaption></figure>
+      </div>
     </section>
 
     <section class="section benefits-section" id="specs">
@@ -99,6 +129,13 @@
       </div>
     </section>
 
+    <section class="section kickstarter-visual-section" id="kickstarter-guide" aria-label="Kickstarter follow guide">
+      <div class="kickstarter-visual-card">
+        <div class="kickstarter-visual-copy"><p class="eyebrow">Before launch</p><h2>Follow MistWake on Kickstarter too.</h2><p>Joining the email list helps us reach you. Following on Kickstarter helps you get the launch notification directly from Kickstarter when the campaign opens.</p><a class="primary-btn kickstarter-follow-link" href="https://www.kickstarter.com/projects/mistwake/mistwake-a-sound-mist-alarm-clock" target="_blank" rel="noopener">Follow on Kickstarter</a></div>
+        <div class="kickstarter-guide-frame"><img src="assets/kickstarter-follow-guide.svg?v=55" alt="Guide showing how to follow MistWake on Kickstarter" loading="lazy" /></div>
+      </div>
+    </section>
+
     <section class="section faq-section" id="faq">
       <div class="section-header centered"><p class="eyebrow">FAQ</p><h2>Quick answers.</h2></div>
       <div class="faq-list accordion-list">
@@ -116,8 +153,8 @@
 
   <div class="mobile-sticky-cta" aria-label="Mobile launch list bar"><span>Free list · $70 off at launch</span><a href="#join">Join</a></div>
   <footer><div class="footer-brand"><img src="assets/mistwake-logo.png.png" alt="MistWake logo" loading="lazy" /><p>© 2026 MistWake. <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms</a> · <a href="mailto:support@mistwake.online">support@mistwake.online</a></p></div><p class="footer-secondary-link">Want the launch discount? <a href="#offer">Reserve VIP for $1</a>.</p><a href="#top">Back to top</a></footer>
-  <script src="consent.js?v=54"></script>
-  <script src="script.js?v=54"></script>
-  <script src="social-links.js?v=54"></script>
+  <script src="consent.js?v=55"></script>
+  <script src="script.js?v=55"></script>
+  <script src="social-links.js?v=55"></script>
 </body>
 </html>
