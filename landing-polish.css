@@ -1,0 +1,99 @@
+/* Landing page polish for hero carousel, main video placement, and press-logo chips. */
+.hero-carousel-card {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 11;
+  min-height: 360px;
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(8, 11, 16, 0.72);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.38);
+}
+
+.hero-carousel-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.02);
+  animation: mistwake-hero-carousel 15s infinite;
+}
+
+.hero-carousel-image-one { animation-delay: 0s; }
+.hero-carousel-image-two { animation-delay: 5s; }
+.hero-carousel-image-three { animation-delay: 10s; }
+
+@keyframes mistwake-hero-carousel {
+  0% { opacity: 0; transform: scale(1.025); }
+  5% { opacity: 1; transform: scale(1); }
+  31% { opacity: 1; transform: scale(1); }
+  38% { opacity: 0; transform: scale(1.018); }
+  100% { opacity: 0; transform: scale(1.025); }
+}
+
+.main-video-section {
+  padding-top: 40px;
+}
+
+.main-video-wrap {
+  width: min(100%, 980px);
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  background: #05070a;
+  box-shadow: 0 24px 76px rgba(0, 0, 0, 0.3);
+}
+
+.main-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  background: #05070a;
+}
+
+.mention-logo {
+  gap: 10px;
+  padding-left: 12px;
+  justify-content: flex-start;
+}
+
+.mention-logo img {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  border-radius: 10px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.mention-logo span {
+  line-height: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-carousel-image {
+    animation: none;
+  }
+  .hero-carousel-image-one {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-carousel-card {
+    min-height: 240px;
+    border-radius: 22px;
+    aspect-ratio: 4 / 3;
+  }
+  .main-video-wrap {
+    border-radius: 20px;
+  }
+  .mention-logo img {
+    width: 30px;
+    height: 30px;
+  }
+}
