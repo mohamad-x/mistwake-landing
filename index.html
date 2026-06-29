@@ -16,16 +16,16 @@
   <meta name="twitter:description" content="Working prototype built. Join the free launch list and optionally lock in $70 off MSRP at launch." />
   <meta name="twitter:image" content="https://mistwake.online/assets/real-prototype-handheld.webp" />
   <link rel="icon" type="image/png" href="assets/mistwake-logo.png.png" />
-  <link rel="stylesheet" href="styles.css?v=58" />
-  <link rel="stylesheet" href="visual.css?v=58" />
-  <link rel="stylesheet" href="landing-fixes.css?v=58" />
-  <link rel="stylesheet" href="refresh.css?v=58" />
-  <link rel="stylesheet" href="media-refresh.css?v=58" />
+  <link rel="stylesheet" href="styles.css?v=59" />
+  <link rel="stylesheet" href="visual.css?v=59" />
+  <link rel="stylesheet" href="landing-fixes.css?v=59" />
+  <link rel="stylesheet" href="refresh.css?v=59" />
+  <link rel="stylesheet" href="media-refresh.css?v=59" />
 </head>
 <body>
   <header class="navbar">
     <a class="logo" href="#top" aria-label="MistWake home"><img class="logo-img" src="assets/mistwake-logo.png.png" alt="MistWake logo" /><span>MistWake</span></a>
-    <nav class="nav-links" aria-label="Primary navigation"><a href="#how">How it works</a><a href="#prototype-video">Prototype</a><a href="#offer">Save $70</a><a href="#faq">FAQ</a></nav>
+    <nav class="nav-links" aria-label="Primary navigation"><a href="#for-you">For you</a><a href="#how">How it works</a><a href="#prototype-video">Prototype</a><a href="#mentions">Mentions</a><a href="#offer">VIP</a><a href="#faq">FAQ</a></nav>
     <a class="nav-cta" href="#join">Join free</a>
   </header>
 
@@ -34,26 +34,45 @@
       <div class="hero-shell">
         <div class="hero-copy">
           <p class="eyebrow">Kickstarter pre-launch page approved · working prototype built</p>
-          <h1>Wake up with sound first. Mist only if you need it.</h1>
-          <p class="hero-subtitle">MistWake is a bedside alarm for mornings when sound alone is easy to sleep through. It starts like a normal alarm, then can add a brief, aimed fine-mist cue if the alarm is not dismissed.</p>
+          <h1>Sound first. Mist if needed.</h1>
+          <p class="hero-subtitle">A bedside alarm for mornings when sound alone does not cut through. MistWake starts like a normal alarm, then can add a brief, aimed fine-mist cue if the alarm is not dismissed.</p>
           <div class="hero-actions" id="join">
             <form class="waitlist-form waitlist-inline-form" onsubmit="return handleWaitlistSubmit(event)">
               <input type="email" name="email" placeholder="Enter your email" required />
               <button type="submit">Join the Free Launch List</button>
             </form>
-            <div class="hero-secondary-actions"><a class="text-link kickstarter-follow-link" href="https://www.kickstarter.com/projects/mistwake/mistwake-a-sound-mist-alarm-clock" target="_blank" rel="noopener">Follow the Kickstarter campaign</a></div>
+            <div class="hero-secondary-actions"><a class="text-link kickstarter-follow-link" href="https://www.kickstarter.com/projects/mistwake/mistwake-a-sound-mist-alarm-clock" target="_blank" rel="noopener">Follow on Kickstarter</a></div>
           </div>
           <p id="form-message" aria-live="polite"></p>
         </div>
         <div class="hero-media-stack" aria-label="MistWake main video">
           <div class="hero-video-card human-product-card">
             <video class="hero-video-preview" autoplay muted loop playsinline preload="metadata" poster="assets/real-prototype-handheld.webp" aria-label="MistWake main launch video">
-              <source src="assets/hf_20260627_081902_40e88d60-be54-4527-8d71-19c9f77b1123.mp4?v=58" type="video/mp4" />
+              <source src="assets/hf_20260627_081902_40e88d60-be54-4527-8d71-19c9f77b1123.mp4?v=59" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             <div class="demo-overlay"><span class="pulse-dot"></span><span>Main MistWake video</span></div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section mention-marquee-section" id="mentions" aria-label="MistWake mentions">
+      <div class="section-header centered"><p class="eyebrow">Mentioned by</p><h2>Press and media mentions.</h2></div>
+      <div class="mention-marquee" aria-label="Websites that mentioned MistWake">
+        <div class="mention-track">
+          <span class="mention-logo">TechBullion</span><span class="mention-logo">Digital Journal</span><span class="mention-logo">Big News Network</span><span class="mention-logo">NewsBreak</span><span class="mention-logo">Medium</span><span class="mention-logo">Time Business News</span><span class="mention-logo">Dutable</span>
+          <span class="mention-logo" aria-hidden="true">TechBullion</span><span class="mention-logo" aria-hidden="true">Digital Journal</span><span class="mention-logo" aria-hidden="true">Big News Network</span><span class="mention-logo" aria-hidden="true">NewsBreak</span><span class="mention-logo" aria-hidden="true">Medium</span><span class="mention-logo" aria-hidden="true">Time Business News</span><span class="mention-logo" aria-hidden="true">Dutable</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section audience-section" id="for-you" aria-label="Who MistWake is for">
+      <div class="section-header centered"><p class="eyebrow">This is for you</p><h2>For mornings when normal alarms are not enough.</h2></div>
+      <div class="audience-grid">
+        <article class="audience-card"><h3>You sleep through sound</h3><p>When a regular alarm can blend into the background, MistWake adds a second cue.</p></article>
+        <article class="audience-card"><h3>You need a physical nudge</h3><p>The mist cue is designed to be brief, aimed, and optional — not a splash.</p></article>
+        <article class="audience-card"><h3>You want control</h3><p>Use sound-only mode, enable mist mode, and adjust your routine as needed.</p></article>
       </div>
     </section>
 
@@ -71,16 +90,31 @@
       <div class="section-header centered"><p class="eyebrow">Real prototype</p><h2>See the working unit.</h2><p>This clip shows the physical prototype being operated on camera.</p></div>
       <div class="prototype-video-wrap">
         <video class="asset-placeholder-img prototype-video" controls playsinline preload="metadata" poster="assets/real-prototype-handheld.webp">
-          <source src="assets/prototype-demo.mp4?v=58" type="video/mp4" />
+          <source src="assets/prototype-demo.mp4?v=59" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
     </section>
 
-    <section class="section offer-section simple-offer" id="offer">
-      <div class="offer-card">
-        <div class="offer-copy"><p class="eyebrow">Optional VIP step</p><h2>Save $70 at launch.</h2><p>Join the free list first. If you want the launch discount held for you, the optional one-time $1 VIP reservation unlocks a private Kickstarter reward with $70 off MistWake's planned MSRP.</p><ul class="offer-detail-list"><li>One-time $1 reservation</li><li>Unlocks $70 off MSRP at Kickstarter launch</li><li>Does not purchase MistWake</li><li>Not credited toward your Kickstarter pledge</li><li>Shipping and applicable taxes are additional</li><li>Reservation terms handled through Gumroad</li></ul></div>
-        <div class="offer-box"><span class="offer-kicker">VIP Reservation</span><strong>$1</strong><p>$70 off MSRP at launch</p><a class="primary-btn reserve-link" href="https://mistwake.gumroad.com/l/fhbea" target="_blank" rel="noopener">Reserve VIP Access</a><div class="vip-progress" id="vip-progress" aria-live="polite"><div class="vip-progress-track"><div class="vip-progress-fill" id="vip-progress-fill"></div></div><small id="vip-progress-label">Loading VIP spots reserved…</small></div><small>Secure checkout powered by Gumroad.</small><small>The reservation fee does not purchase MistWake and is not credited toward your Kickstarter pledge.</small></div>
+    <section class="section launch-access-section" id="offer">
+      <div class="section-header centered"><p class="eyebrow">Launch access</p><h2>Choose your launch access.</h2><p>Join free for updates, or reserve VIP access if you want the launch discount held for you.</p></div>
+      <div class="launch-access-grid">
+        <article class="launch-card launch-card-free">
+          <span class="launch-plan">Supporter</span>
+          <strong class="launch-price">Free</strong>
+          <p>Get launch updates and first access when the Kickstarter campaign is ready.</p>
+          <ul class="offer-detail-list"><li>Launch updates by email</li><li>Kickstarter reminder</li><li>No payment required</li></ul>
+          <a class="primary-btn" href="#join">Join free</a>
+        </article>
+        <article class="launch-card launch-card-vip">
+          <span class="launch-plan">VIP Access</span>
+          <strong class="launch-price">$1</strong>
+          <p>Unlock access to a private Kickstarter reward with $70 off MistWake's planned MSRP.</p>
+          <ul class="offer-detail-list"><li>One-time reservation</li><li>Unlocks $70 off MSRP</li><li>Does not purchase MistWake</li><li>Not credited toward your Kickstarter pledge</li></ul>
+          <a class="primary-btn reserve-link" href="https://mistwake.gumroad.com/l/fhbea" target="_blank" rel="noopener">Reserve VIP Access</a>
+          <div class="vip-progress" id="vip-progress" aria-live="polite"><div class="vip-progress-track"><div class="vip-progress-fill" id="vip-progress-fill"></div></div><small id="vip-progress-label">Loading VIP spots reserved…</small></div>
+          <small>Secure checkout powered by Gumroad. Shipping and applicable taxes are additional.</small>
+        </article>
       </div>
     </section>
 
@@ -103,8 +137,8 @@
 
   <div class="mobile-sticky-cta" aria-label="Mobile launch list bar"><span>Free list · $70 off at launch</span><a href="#join">Join</a></div>
   <footer><div class="footer-brand"><img src="assets/mistwake-logo.png.png" alt="MistWake logo" loading="lazy" /><p>© 2026 MistWake. <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms</a> · <a href="mailto:support@mistwake.online">support@mistwake.online</a></p></div><p class="footer-secondary-link">Want the launch discount? <a href="#offer">Reserve VIP for $1</a>.</p><a href="#top">Back to top</a></footer>
-  <script src="consent.js?v=58"></script>
-  <script src="script.js?v=58"></script>
-  <script src="social-links.js?v=58"></script>
+  <script src="consent.js?v=59"></script>
+  <script src="script.js?v=59"></script>
+  <script src="social-links.js?v=59"></script>
 </body>
 </html>
