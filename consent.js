@@ -66,7 +66,7 @@
         n = document.createElement("script"); n.type = "text/javascript"; n.async = !0; n.src = r + "?sdkid=" + e + "&lib=" + t;
         e = document.getElementsByTagName("script")[0]; e.parentNode.insertBefore(n, e);
       };
-      ttq.load('D89C12JC77UDFA3HK7I0');
+      ttq.load('D922U1BC77U4748KJP0G');
       ttq.page();
     })(window, document, 'ttq');
   }
