@@ -1,4 +1,4 @@
-/* Landing page polish for hero carousel, main video placement, and press-logo chips. */
+/* Landing page polish for hero carousel, main video placement, press-logo chips, and mobile join targeting. */
 .hero-carousel-card {
   position: relative;
   overflow: hidden;
@@ -31,6 +31,10 @@
   31% { opacity: 1; transform: scale(1); }
   38% { opacity: 0; transform: scale(1.018); }
   100% { opacity: 0; transform: scale(1.025); }
+}
+
+.hero-actions#join {
+  scroll-margin-top: 138px;
 }
 
 .main-video-section {
@@ -84,6 +88,9 @@
 }
 
 @media (max-width: 700px) {
+  .hero-actions#join {
+    scroll-margin-top: 180px;
+  }
   .hero-carousel-card {
     min-height: 240px;
     border-radius: 22px;
