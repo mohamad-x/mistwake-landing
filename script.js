@@ -97,6 +97,34 @@ function attachAttributionToReserveLinks() {
   });
 }
 
+function scrollToEmailSignup() {
+  var form = document.querySelector('.waitlist-form');
+  var input = form ? form.querySelector('input[type=email]') : null;
+  if (!form || !input) return false;
+
+  form.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+  setTimeout(function () {
+    try { input.focus({ preventScroll: true }); }
+    catch (e) { input.focus(); }
+  }, 450);
+  return true;
+}
+
+function setupJoinScroll() {
+  document.querySelectorAll('a[href="#join"]').forEach(function (link) {
+    link.addEventListener('click', function (event) {
+      if (scrollToEmailSignup()) {
+        event.preventDefault();
+        if (history && history.replaceState) history.replaceState(null, '', '#join');
+      }
+    });
+  });
+
+  if (window.location.hash === '#join') {
+    setTimeout(scrollToEmailSignup, 250);
+  }
+}
+
 var vipCounterState = { reserved: null, total: null, timer: null };
 
 function getVipCounterUrl() {
@@ -205,6 +233,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.kickstarter-follow-link').forEach(function (link) { link.addEventListener('click', trackKickstarterClick); });
   document.querySelectorAll('.waitlist-form button').forEach(function (button) { button.dataset.originalText = button.textContent; });
   attachAttributionToReserveLinks();
+  setupJoinScroll();
   applyVipProgress();
   applyFaqTracking();
   applyOfferViewTracking();
